@@ -1,0 +1,27 @@
+/* Utilitaires CSS pour la rotation 3D de la carte */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Fond légèrement différencié pour le verso */
+.bg-slate-850 {
+  background-color: #1e293b;
+}
