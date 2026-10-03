@@ -1,208 +1,234 @@
-// --- Données & État ---
-let data = JSON.parse(localStorage.getItem('flashcards_data')) || {
-  decks: [
-    { id: 'default', name: 'Général' }
-  ],
-  cards: [
-    {
-      id: 'c1',
-      deckId: 'default',
-      front: 'Quelle est la vitesse de la lumière ?',
-      back: '~ 300 000 km/s',
-      dueDate: new Date().toISOString(),
-      interval: 1
-    }
-  ]
-};
+// LocalStorage keys
+const STORAGE_KEY_DECKS = 'ankit_decks_data';
+const STORAGE_KEY_CARDS = 'ankit_cards_data';
 
-let currentStudyQueue = [];
+// App State
+let decks = [];
+let cards = [];
+let currentDeckId = null;
+let studyQueue = [];
 let currentCardIndex = 0;
 let isFlipped = false;
 
-// --- Éléments DOM ---
-const views = {
-  decks: document.getElementById('view-decks'),
-  study: document.getElementById('view-study'),
-  addCard: document.getElementById('view-add-card')
-};
+// Elements DOM
+const viewDecks = document.getElementById('viewDecks');
+const viewStudy = document.getElementById('viewStudy');
+const viewComplete = document.getElementById('viewComplete');
+const decksGrid = document.getElementById('decksGrid');
 
-const deckListEl = document.getElementById('deck-list');
-const cardContainer = document.getElementById('card-container');
-const cardInner = document.getElementById('card-inner');
-const cardFrontText = document.getElementById('card-front-text');
-const cardBackText = document.getElementById('card-back-text');
-const studyControls = document.getElementById('study-controls');
-const studyProgress = document.getElementById('study-progress');
-const formAddCard = document.getElementById('form-add-card');
-const selectDeck = document.getElementById('select-deck');
+const flashcard = document.getElementById('flashcard');
+const cardContent = document.getElementById('cardContent');
+const cardHint = document.getElementById('cardHint');
+const responseButtons = document.getElementById('responseButtons');
+const studyProgress = document.getElementById('studyProgress');
 
-// --- Sauvegarde ---
-function saveData() {
-  localStorage.setItem('flashcards_data', JSON.stringify(data));
-}
+const btnBackToDecks = document.getElementById('btnBackToDecks');
+const btnBackHome = document.getElementById('btnBackHome');
+const btnResetData = document.getElementById('btnResetData');
 
-// --- Navigation ---
-function showView(viewName) {
-  Object.keys(views).forEach(key => {
-    views[key].classList.toggle('hidden', key !== viewName);
-  });
-}
+// --- 1. INITIALISATION & CHARGEMENT DE LA DATA ---
 
-document.getElementById('btn-nav-decks').addEventListener('click', () => {
-  renderDecks();
-  showView('decks');
-});
+async function init() {
+  const savedDecks = localStorage.getItem(STORAGE_KEY_DECKS);
+  const savedCards = localStorage.getItem(STORAGE_KEY_CARDS);
 
-document.getElementById('btn-nav-add').addEventListener('click', () => {
-  populateDeckSelect();
-  showView('addCard');
-});
-
-document.getElementById('btn-back-decks').addEventListener('click', () => {
-  renderDecks();
-  showView('decks');
-});
-
-// --- Gestion des Paquets (Decks) ---
-document.getElementById('btn-create-deck').addEventListener('click', () => {
-  const name = prompt('Nom du nouveau paquet :');
-  if (name && name.trim()) {
-    const newDeck = { id: 'deck_' + Date.now(), name: name.trim() };
-    data.decks.push(newDeck);
-    saveData();
-    renderDecks();
+  if (savedDecks && savedCards) {
+    decks = JSON.parse(savedDecks);
+    cards = JSON.parse(savedCards);
+  } else {
+    await resetDataFromJSON();
   }
-});
+
+  renderDecks();
+  setupEventListeners();
+}
+
+async function resetDataFromJSON() {
+  try {
+    const res = await fetch('./data.json');
+    if (!res.ok) throw new Error('Impossible de charger data.json');
+    const data = await res.json();
+    decks = data.decks;
+    cards = data.cards;
+    saveToStorage();
+  } catch (err) {
+    console.error("Erreur lors du chargement de data.json :", err);
+  }
+}
+
+function saveToStorage() {
+  localStorage.setItem(STORAGE_KEY_DECKS, JSON.stringify(decks));
+  localStorage.setItem(STORAGE_KEY_CARDS, JSON.stringify(cards));
+}
+
+// --- 2. AFFICHAGE DE LA LISTE DES DECKS ---
 
 function renderDecks() {
-  deckListEl.innerHTML = '';
+  showView('decks');
+  decksGrid.innerHTML = '';
+
+  if (decks.length === 0) {
+    decksGrid.innerHTML = `<p class="text-slate-500 text-sm col-span-2">Aucun paquet trouvé.</p>`;
+    return;
+  }
+
   const now = new Date();
 
-  data.decks.forEach(deck => {
-    const deckCards = data.cards.filter(c => c.deckId === deck.id);
+  decks.forEach(deck => {
+    const deckCards = cards.filter(c => c.deckId === deck._id);
     const dueCards = deckCards.filter(c => new Date(c.dueDate) <= now);
 
     const cardEl = document.createElement('div');
-    cardEl.className = 'bg-slate-800 border border-slate-700 p-5 rounded-xl flex justify-between items-center hover:border-slate-600 transition';
+    cardEl.className = 'bg-slate-800 border border-slate-700/80 hover:border-slate-600 rounded-xl p-5 flex items-center justify-between transition group';
     cardEl.innerHTML = `
       <div>
-        <h3 class="font-bold text-lg text-slate-100">${deck.name}</h3>
-        <p class="text-sm text-slate-400">${deckCards.length} cartes au total</p>
+        <h3 class="font-semibold text-lg text-slate-100 group-hover:text-indigo-400 transition">${deck.name}</h3>
+        <p class="text-xs text-slate-400 mt-1">${deckCards.length} cartes au total</p>
       </div>
-      <button onclick="startStudy('${deck.id}')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-medium text-sm transition">
-        Réviser (${dueCards.length})
-      </button>
+      <div class="flex items-center gap-3">
+        <span class="px-2.5 py-1 text-xs font-semibold rounded-md ${dueCards.length > 0 ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : 'bg-slate-700/50 text-slate-400'}">
+          ${dueCards.length} à réviser
+        </span>
+        <button data-id="${deck._id}" class="btn-start-study px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition disabled:opacity-40 disabled:hover:bg-indigo-600" ${dueCards.length === 0 ? 'disabled' : ''}>
+          Réviser
+        </button>
+      </div>
     `;
-    deckListEl.appendChild(cardEl);
+    decksGrid.appendChild(cardEl);
   });
 }
 
-// --- Session de Révision (Spaced Repetition) ---
-window.startStudy = function(deckId) {
-  const now = new Date();
-  // Filtrer les cartes à réviser aujourd'hui
-  currentStudyQueue = data.cards.filter(c => c.deckId === deckId && new Date(c.dueDate) <= now);
+// --- 3. LOGIQUE DE RÉVISION (SM-2) ---
 
-  if (currentStudyQueue.length === 0) {
-    alert("Aucune carte à réviser dans ce paquet pour le moment !");
+function startStudy(deckId) {
+  currentDeckId = deckId;
+  const now = new Date();
+
+  studyQueue = cards.filter(c => c.deckId === deckId && new Date(c.dueDate) <= now);
+
+  if (studyQueue.length === 0) {
+    showView('complete');
     return;
   }
 
   currentCardIndex = 0;
   showView('study');
-  loadCard();
-};
+  renderCurrentCard();
+}
 
-function loadCard() {
-  if (currentCardIndex >= currentStudyQueue.length) {
-    alert("Session terminée ! Bravo ! 🎉");
-    renderDecks();
-    showView('decks');
+function renderCurrentCard() {
+  if (currentCardIndex >= studyQueue.length) {
+    saveToStorage();
+    showView('complete');
     return;
   }
 
-  const card = currentStudyQueue[currentCardIndex];
-  cardFrontText.textContent = card.front;
-  cardBackText.textContent = card.back;
-  
-  // Réinitialiser le flip
   isFlipped = false;
-  cardInner.classList.remove('flipped');
-  studyControls.classList.add('hidden');
+  const currentCard = studyQueue[currentCardIndex];
 
-  studyProgress.textContent = `Carte ${currentCardIndex + 1} / ${currentStudyQueue.length}`;
+  cardContent.textContent = currentCard.front;
+  cardHint.textContent = 'Clique pour voir la réponse';
+  responseButtons.classList.add('hidden');
+
+  studyProgress.textContent = `${currentCardIndex + 1} / ${studyQueue.length} cartes`;
 }
 
-// Cliquer sur la carte pour la retourner
-cardContainer.addEventListener('click', () => {
-  if (!isFlipped) {
-    isFlipped = true;
-    cardInner.classList.add('flipped');
-    studyControls.classList.remove('hidden');
-  }
-});
+function flipCard() {
+  if (isFlipped) return;
+  isFlipped = true;
+  const currentCard = studyQueue[currentCardIndex];
+  cardContent.textContent = currentCard.back;
+  cardHint.textContent = 'Évalue ta réponse :';
+  responseButtons.classList.remove('hidden');
+}
 
-// Évaluation et calcul de la prochaine date (Algorithme SRS simplifié)
-studyControls.addEventListener('click', (e) => {
-  const button = e.target.closest('button');
-  if (!button) return;
+function processAnswer(grade) {
+  const card = studyQueue[currentCardIndex];
+  grade = parseInt(grade);
 
-  const grade = parseInt(button.dataset.grade);
-  const card = currentStudyQueue[currentCardIndex];
+  // Algorithme SM-2 simplifié
+  let repetition = card.repetition || 0;
+  let interval = card.interval || 1;
+  let efactor = card.efactor || 2.5;
 
-  // Algorithme d'intervalle simple (multiplicateurs de jours)
-  let daysToAdd = 1;
-  if (grade === 1) daysToAdd = 1;      // À revoir demain
-  if (grade === 2) daysToAdd = 2;      // Difficile
-  if (grade === 3) daysToAdd = 4;      // Correct
-  if (grade === 4) daysToAdd = 7 * (card.interval || 1); // Facile
-
-  // Mettre à jour la carte originale
-  const originalCard = data.cards.find(c => c.id === card.id);
-  if (originalCard) {
-    const nextDate = new Date();
-    nextDate.setDate(nextDate.getDate() + daysToAdd);
-    originalCard.dueDate = nextDate.toISOString();
-    originalCard.interval = daysToAdd;
-    saveData();
+  if (grade >= 3) {
+    if (repetition === 0) interval = 1;
+    else if (repetition === 1) interval = 6;
+    else interval = Math.round(interval * efactor);
+    repetition++;
+  } else {
+    repetition = 0;
+    interval = 1;
   }
 
+  efactor = efactor + (0.1 - (5 - grade) * (0.08 + (5 - grade) * 0.02));
+  if (efactor < 1.3) efactor = 1.3;
+
+  const nextDueDate = new Date();
+  if (grade < 3) {
+    // Si échec, reprogrammé immédiatement plus tard dans la journée
+    nextDueDate.setMinutes(nextDueDate.getMinutes() + 10);
+  } else {
+    nextDueDate.setDate(nextDueDate.getDate() + interval);
+  }
+
+  // Mettre à jour la carte globale
+  const cardIndexInGlobal = cards.findIndex(c => c._id === card._id);
+  if (cardIndexInGlobal !== -1) {
+    cards[cardIndexInGlobal] = {
+      ...card,
+      repetition,
+      interval,
+      efactor,
+      dueDate: nextDueDate.toISOString()
+    };
+  }
+
+  saveToStorage();
   currentCardIndex++;
-  loadCard();
-});
+  renderCurrentCard();
+}
 
-// --- Ajout de Cartes ---
-function populateDeckSelect() {
-  selectDeck.innerHTML = '';
-  data.decks.forEach(deck => {
-    const opt = document.createElement('option');
-    opt.value = deck.id;
-    opt.textContent = deck.name;
-    selectDeck.appendChild(opt);
+// --- 4. NAVIGATION & ÉVÉNEMENTS ---
+
+function showView(viewName) {
+  viewDecks.classList.add('hidden');
+  viewStudy.classList.add('hidden');
+  viewComplete.classList.add('hidden');
+
+  if (viewName === 'decks') viewDecks.classList.remove('hidden');
+  if (viewName === 'study') viewStudy.classList.remove('hidden');
+  if (viewName === 'complete') viewComplete.classList.remove('hidden');
+}
+
+function setupEventListeners() {
+  decksGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-start-study');
+    if (btn) {
+      startStudy(btn.dataset.id);
+    }
+  });
+
+  flashcard.addEventListener('click', flipCard);
+
+  responseButtons.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-grade');
+    if (btn) {
+      processAnswer(btn.dataset.grade);
+    }
+  });
+
+  btnBackToDecks.addEventListener('click', () => renderDecks());
+  btnBackHome.addEventListener('click', () => renderDecks());
+
+  btnResetData.addEventListener('click', async () => {
+    if (confirm("Réinitialiser les paquets et cartes à leur état initial (depuis data.json) ?")) {
+      localStorage.clear();
+      await resetDataFromJSON();
+      renderDecks();
+    }
   });
 }
 
-formAddCard.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const front = document.getElementById('input-front').value.trim();
-  const back = document.getElementById('input-back').value.trim();
-  const deckId = selectDeck.value;
-
-  if (front && back) {
-    data.cards.push({
-      id: 'c_' + Date.now(),
-      deckId: deckId,
-      front: front,
-      back: back,
-      dueDate: new Date().toISOString(),
-      interval: 1
-    });
-
-    saveData();
-    formAddCard.reset();
-    alert('Carte ajoutée avec succès !');
-  }
-});
-
-// --- Initialisation ---
-renderDecks();
+// Démarrage
+init();

@@ -1,0 +1,90 @@
+{
+  "decks": [
+    {
+      "_id": "deck-but1-ensembles",
+      "name": "BUT 1 - Mathématiques : Théorie des Ensembles"
+    }
+  ],
+  "cards": [
+    {
+      "_id": "card-ens-1",
+      "deckId": "deck-but1-ensembles",
+      "front": "Comment traduire les 4 opérations de base (∩, ∪, \\, Ā) sous forme de conditions d'appartenance ?",
+      "back": "• Intersection (A ∩ B) :\nx ∈ A ∩ B ⇔ x ∈ A ET x ∈ B\n\n• Union (A ∪ B) :\nx ∈ A ∪ B ⇔ x ∈ A OU x ∈ B\n\n• Différence (A \\ B) :\nx ∈ A \\ B ⇔ x ∈ A ET x ∉ B\n\n• Complémentaire (Ā ou Aᶜ) :\nx ∈ Ā ⇔ x ∈ E ET x ∉ A",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ens-2",
+      "deckId": "deck-but1-ensembles",
+      "front": "Que signifie rigoureusement l'écriture X ∈ 𝒫(A) ?",
+      "back": "X ∈ 𝒫(A) ⇔ X ⊆ A\n\n(Cela signifie que X est une partie ou un sous-ensemble de A. X est un ensemble, pas un simple élément).",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ens-3",
+      "deckId": "deck-but1-ensembles",
+      "front": "Quelle est la structure de rédaction pour prouver une inclusion A ⊆ B ?",
+      "back": "Méthode de l'élément quelconque :\n1. Soit x ∈ A.\n2. [Raisonnement utilisant les définitions et hypothèses]\n3. Montrer que x ∈ B.\n4. Conclure : A ⊆ B.",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ens-4",
+      "deckId": "deck-but1-ensembles",
+      "front": "Quelles sont les deux méthodes pour démontrer que deux ensembles A et B sont égaux (A = B) ?",
+      "back": "1. Double inclusion (privilégiée) :\nProuver que A ⊆ B, puis prouver que B ⊆ A.\n\n2. Par équivalences successives (⇔) :\nPartir de x ∈ A et enchaîner les équivalences strictes jusqu'à x ∈ B.",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ens-5",
+      "deckId": "deck-but1-ensembles",
+      "front": "Quelle est la différence fondamentale entre le symbole ∈ et le symbole ⊆ ?",
+      "back": "• ∈ (Appartenance) : relie un ÉLÉMENT à un ensemble (ex: 2 ∈ ℕ).\n• ⊆ (Inclusion) : relie DEUX ENSEMBLES (ex: {2} ⊆ ℕ).\n\nRègle d'or : x ∈ A ⇔ {x} ⊆ A.",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ens-6",
+      "deckId": "deck-but1-ensembles",
+      "front": "Quelles sont les deux lois de De Morgan pour les ensembles ?",
+      "back": "Le complémentaire inverse l'opération (∩ devient ∪ et inversement) :\n\n1. Not(A ∩ B) = Ā ∪ B̄\n2. Not(A ∪ B) = Ā ∩ B̄",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ens-7",
+      "deckId": "deck-but1-ensembles",
+      "front": "Comment se traduit l'appartenance à un produit cartésien (x, y) ∈ A × B ?",
+      "back": "(x, y) ∈ A × B ⇔ x ∈ A ET y ∈ B\n\n(Un élément d'un produit cartésien est un couple).",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ens-8",
+      "deckId": "deck-but1-ensembles",
+      "front": "Qu'est-ce que la différence symétrique A Δ B (définition et condition d'appartenance) ?",
+      "back": "C'est l'ensemble des éléments qui sont dans A ou dans B, mais PAS dans les deux (OU exclusif).\n\n• Formule : A Δ B = (A \\ B) ∪ (B \\ A) = (A ∪ B) \\ (A ∩ B)\n• Appartenance : x ∈ A Δ B ⇔ (x ∈ A ET x ∉ B) OU (x ∈ B ET x ∉ A)",
+      "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    }
+  ]
+}
