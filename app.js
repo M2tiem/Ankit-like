@@ -1,8 +1,6 @@
-// LocalStorage keys
 const STORAGE_KEY_DECKS = 'ankit_decks_data';
 const STORAGE_KEY_CARDS = 'ankit_cards_data';
 
-// App State
 let decks = [];
 let cards = [];
 let currentDeckId = null;
@@ -10,7 +8,7 @@ let studyQueue = [];
 let currentCardIndex = 0;
 let isFlipped = false;
 
-// Elements DOM
+// Éléments UI
 const viewDecks = document.getElementById('viewDecks');
 const viewStudy = document.getElementById('viewStudy');
 const viewComplete = document.getElementById('viewComplete');
@@ -25,8 +23,17 @@ const studyProgress = document.getElementById('studyProgress');
 const btnBackToDecks = document.getElementById('btnBackToDecks');
 const btnBackHome = document.getElementById('btnBackHome');
 const btnResetData = document.getElementById('btnResetData');
+const btnExportJSON = document.getElementById('btnExportJSON');
 
-// --- 1. INITIALISATION & CHARGEMENT DE LA DATA ---
+// Formulaires
+const formAddDeck = document.getElementById('formAddDeck');
+const formAddCard = document.getElementById('formAddCard');
+const inputDeckName = document.getElementById('inputDeckName');
+const selectDeckForCard = document.getElementById('selectDeckForCard');
+const inputCardFront = document.getElementById('inputCardFront');
+const inputCardBack = document.getElementById('inputCardBack');
+
+// --- 1. INITIALISATION ---
 
 async function init() {
   const savedDecks = localStorage.getItem(STORAGE_KEY_DECKS);
@@ -40,6 +47,7 @@ async function init() {
   }
 
   renderDecks();
+  updateDeckSelect();
   setupEventListeners();
 }
 
@@ -52,7 +60,7 @@ async function resetDataFromJSON() {
     cards = data.cards;
     saveToStorage();
   } catch (err) {
-    console.error("Erreur lors du chargement de data.json :", err);
+    console.error("Erreur chargement JSON :", err);
   }
 }
 
@@ -61,14 +69,14 @@ function saveToStorage() {
   localStorage.setItem(STORAGE_KEY_CARDS, JSON.stringify(cards));
 }
 
-// --- 2. AFFICHAGE DE LA LISTE DES DECKS ---
+// --- 2. GESTION DU DÉROULÉ ET AFFICHAGE ---
 
 function renderDecks() {
   showView('decks');
   decksGrid.innerHTML = '';
 
   if (decks.length === 0) {
-    decksGrid.innerHTML = `<p class="text-slate-500 text-sm col-span-2">Aucun paquet trouvé.</p>`;
+    decksGrid.innerHTML = `<p class="text-slate-500 text-sm col-span-2">Aucun paquet disponible. Créez-en un ci-dessus !</p>`;
     return;
   }
 
@@ -98,12 +106,65 @@ function renderDecks() {
   });
 }
 
-// --- 3. LOGIQUE DE RÉVISION (SM-2) ---
+function updateDeckSelect() {
+  selectDeckForCard.innerHTML = '<option value="">-- Choisir un paquet --</option>';
+  decks.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d._id;
+    opt.textContent = d.name;
+    selectDeckForCard.appendChild(opt);
+  });
+}
+
+// --- 3. CRÉATION DE PAQUETS / CARTES & EXPORT ---
+
+function addDeck(name) {
+  const newDeck = {
+    _id: 'deck-' + Date.now(),
+    name: name.trim()
+  };
+  decks.push(newDeck);
+  saveToStorage();
+  renderDecks();
+  updateDeckSelect();
+}
+
+function addCard(deckId, front, back) {
+  const newCard = {
+    _id: 'card-' + Date.now(),
+    deckId: deckId,
+    front: front.trim(),
+    back: back.trim(),
+    dueDate: new Date().toISOString(),
+    interval: 1,
+    repetition: 0,
+    efactor: 2.5
+  };
+  cards.push(newCard);
+  saveToStorage();
+  renderDecks();
+}
+
+function exportJSON() {
+  const data = { decks, cards };
+  const jsonStr = JSON.stringify(data, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'data.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// --- 4. LOGIQUE DE RÉVISION (SM-2) ---
 
 function startStudy(deckId) {
   currentDeckId = deckId;
   const now = new Date();
-
   studyQueue = cards.filter(c => c.deckId === deckId && new Date(c.dueDate) <= now);
 
   if (studyQueue.length === 0) {
@@ -129,7 +190,6 @@ function renderCurrentCard() {
   cardContent.textContent = currentCard.front;
   cardHint.textContent = 'Clique pour voir la réponse';
   responseButtons.classList.add('hidden');
-
   studyProgress.textContent = `${currentCardIndex + 1} / ${studyQueue.length} cartes`;
 }
 
@@ -146,7 +206,6 @@ function processAnswer(grade) {
   const card = studyQueue[currentCardIndex];
   grade = parseInt(grade);
 
-  // Algorithme SM-2 simplifié
   let repetition = card.repetition || 0;
   let interval = card.interval || 1;
   let efactor = card.efactor || 2.5;
@@ -166,13 +225,11 @@ function processAnswer(grade) {
 
   const nextDueDate = new Date();
   if (grade < 3) {
-    // Si échec, reprogrammé immédiatement plus tard dans la journée
     nextDueDate.setMinutes(nextDueDate.getMinutes() + 10);
   } else {
     nextDueDate.setDate(nextDueDate.getDate() + interval);
   }
 
-  // Mettre à jour la carte globale
   const cardIndexInGlobal = cards.findIndex(c => c._id === card._id);
   if (cardIndexInGlobal !== -1) {
     cards[cardIndexInGlobal] = {
@@ -189,8 +246,6 @@ function processAnswer(grade) {
   renderCurrentCard();
 }
 
-// --- 4. NAVIGATION & ÉVÉNEMENTS ---
-
 function showView(viewName) {
   viewDecks.classList.add('hidden');
   viewStudy.classList.add('hidden');
@@ -201,34 +256,55 @@ function showView(viewName) {
   if (viewName === 'complete') viewComplete.classList.remove('hidden');
 }
 
+// --- 5. ÉVÉNEMENTS ---
+
 function setupEventListeners() {
+  // Formulaire : Ajouter paquet
+  formAddDeck.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (inputDeckName.value) {
+      addDeck(inputDeckName.value);
+      inputDeckName.value = '';
+    }
+  });
+
+  // Formulaire : Ajouter carte
+  formAddCard.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (selectDeckForCard.value && inputCardFront.value && inputCardBack.value) {
+      addCard(selectDeckForCard.value, inputCardFront.value, inputCardBack.value);
+      inputCardFront.value = '';
+      inputCardBack.value = '';
+    }
+  });
+
+  // Télécharger data.json
+  btnExportJSON.addEventListener('click', exportJSON);
+
+  // Événements existants
   decksGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-start-study');
-    if (btn) {
-      startStudy(btn.dataset.id);
-    }
+    if (btn) startStudy(btn.dataset.id);
   });
 
   flashcard.addEventListener('click', flipCard);
 
   responseButtons.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-grade');
-    if (btn) {
-      processAnswer(btn.dataset.grade);
-    }
+    if (btn) processAnswer(btn.dataset.grade);
   });
 
   btnBackToDecks.addEventListener('click', () => renderDecks());
   btnBackHome.addEventListener('click', () => renderDecks());
 
   btnResetData.addEventListener('click', async () => {
-    if (confirm("Réinitialiser les paquets et cartes à leur état initial (depuis data.json) ?")) {
+    if (confirm("Réinitialiser les données au contenu d'origine du fichier data.json serveur ?")) {
       localStorage.clear();
       await resetDataFromJSON();
       renderDecks();
+      updateDeckSelect();
     }
   });
 }
 
-// Démarrage
 init();
