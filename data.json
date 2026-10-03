@@ -3,6 +3,14 @@
     {
       "_id": "deck-but1-ensembles",
       "name": "BUT 1 - Mathématiques : Théorie des Ensembles"
+    },
+    {
+      "_id": "deck-1791054595864",
+      "name": "Architecture des ordinateurs"
+    },
+    {
+      "_id": "deck-1791055909672",
+      "name": "Japonais"
     }
   ],
   "cards": [
@@ -11,9 +19,9 @@
       "deckId": "deck-but1-ensembles",
       "front": "Comment traduire les 4 opérations de base (∩, ∪, \\, Ā) sous forme de conditions d'appartenance ?",
       "back": "• Intersection (A ∩ B) :\nx ∈ A ∩ B ⇔ x ∈ A ET x ∈ B\n\n• Union (A ∪ B) :\nx ∈ A ∪ B ⇔ x ∈ A OU x ∈ B\n\n• Différence (A \\ B) :\nx ∈ A \\ B ⇔ x ∈ A ET x ∉ B\n\n• Complémentaire (Ā ou Aᶜ) :\nx ∈ Ā ⇔ x ∈ E ET x ∉ A",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T13:17:52.219Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -21,9 +29,9 @@
       "deckId": "deck-but1-ensembles",
       "front": "Que signifie rigoureusement l'écriture X ∈ 𝒫(A) ?",
       "back": "X ∈ 𝒫(A) ⇔ X ⊆ A\n\n(Cela signifie que X est une partie ou un sous-ensemble de A. X est un ensemble, pas un simple élément).",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T13:18:06.786Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -82,6 +90,326 @@
       "front": "Qu'est-ce que la différence symétrique A Δ B (définition et condition d'appartenance) ?",
       "back": "C'est l'ensemble des éléments qui sont dans A ou dans B, mais PAS dans les deux (OU exclusif).\n\n• Formule : A Δ B = (A \\ B) ∪ (B \\ A) = (A ∪ B) \\ (A ∩ B)\n• Appartenance : x ∈ A Δ B ⇔ (x ∈ A ET x ∉ B) OU (x ∈ B ET x ∉ A)",
       "dueDate": "2026-10-03T00:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791031531655",
+      "deckId": "deck-but1-ensembles",
+      "front": "Distribution du quantificateur \n\n\n\npour tout X ( p(x) et q(x)) <=> \n\n\n\nIl y a X (p(x) ou q(x)) <=>\n\n\non ne peut pas distribuer \n\n\n\n• pour tout sur le ou \n\n• il y a sur le et",
+      "back": "( pour tout x, P(X)) et (pour tout x, q(x)) \n(il y a x,p(x)) ou ( il y a x, q(x))",
+      "dueDate": "2026-10-03T12:45:31.655Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791031886275",
+      "deckId": "deck-but1-ensembles",
+      "front": "Définition prédicat",
+      "back": "Un prédicat est un énoncé sans valeur de vérité dans lequel intervient au moins une variable et qui devient une proposition par ajout de quantificateurs \n\n\n\n\n\nune variable introduite est dite liée",
+      "dueDate": "2026-10-03T12:51:26.275Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791031968000",
+      "deckId": "deck-but1-ensembles",
+      "front": "D'après la loi de l'absorption ((p ou q) et q )",
+      "back": "devient q",
+      "dueDate": "2026-10-03T12:52:48.001Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791032004452",
+      "deckId": "deck-but1-ensembles",
+      "front": "Clause unitaire \n\n\n\nlittéral pur",
+      "back": "Une seule variable dans la clause ( située entre plusieurs et) \n\n\n\nliteral pur : toujours sous sa forme ou sous sa forme négative dans l'ensemble de la proposition",
+      "dueDate": "2026-10-03T12:53:24.452Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791032081789",
+      "deckId": "deck-but1-ensembles",
+      "front": "Définir la commutativité",
+      "back": "On dit qu'un opérateur est commutatif lorsque l'ordre des opérateurs n'est pas important \n\n\n\nquelque soit à et B on a\n\n\n\na* B = B  * a",
+      "dueDate": "2026-10-03T12:54:41.789Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791032140781",
+      "deckId": "deck-but1-ensembles",
+      "front": "Définir la distributivité",
+      "back": "On dit qu'un opérateur est distributif sur tel que \n\nA * ( b•  c) =( a *b) • ( a* c)",
+      "dueDate": "2026-10-03T12:55:40.781Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791032180231",
+      "deckId": "deck-but1-ensembles",
+      "front": "Loi de Morgan \n\n\nsoit p et q deux variables propositionnelles alors :",
+      "back": "non( p et q) <=> non p ou non q\n\n\n\nnon (p ou q) <=> non p et non q",
+      "dueDate": "2026-10-03T12:56:20.231Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791032253336",
+      "deckId": "deck-but1-ensembles",
+      "front": "Définir associativité",
+      "back": "On dit qu'un opérateur est associatif lorsque l'ordre des opérations n'a pas d'importance \n\n\n\nsoit a,b et c on a \n\n\n\n(a b )  c = c ( a  b)",
+      "dueDate": "2026-10-03T12:57:33.336Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791032304240",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soit p et q deux variables propositionnelles alors \n\n\n\n(P <=> Q)  <=> ? \n\n\n( deux réponses )",
+      "back": "((P=> Q) et ( Q=> P)) \n\n\n\n((P et Q)) ou (non P et non Q))",
+      "dueDate": "2026-10-03T12:58:24.240Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791047058440",
+      "deckId": "deck-but1-ensembles",
+      "front": "Définition \nensemble \nObjet d’ensemble",
+      "back": "C’est une collection d’objets sans doubles et sans ordre \nLes objets d’un ensemble sont appelés ses éléments",
+      "dueDate": "2026-10-03T17:04:18.440Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791047319632",
+      "deckId": "deck-but1-ensembles",
+      "front": "Un ensemble peut être défini en :",
+      "back": "- extension : on liste tous les éléments de l’ensemble \n\n- pseudo-extension: on liste le début d’une suite logique d’éléments en finissant par … ( à éviter ) \n- en compréhension { x€ E | p(x) } où P(x) est un prédicat. \nOn définit les éléments d’un ensemble comme ceux appartenant à un sur ensemble E et vérifiant une certaine propriété ( définie par P)",
+      "dueDate": "2026-10-03T17:08:39.632Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791047503257",
+      "deckId": "deck-but1-ensembles",
+      "front": "Les ensembles classiques :\n\nN:\nZ: \nD:\nQ:\nR:",
+      "back": "N: ensemble des entiers naturels positifs \nZ: ensemble des entiers relatifs \nD: ensemble des nombres décimaux \nQ:ensemble des nombres rationnels ( de la forme a/b avec a et b entiers )\n\nR: Ensemble des nombres réels",
+      "dueDate": "2026-10-03T17:11:43.257Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791056667886",
+      "deckId": "deck-but1-ensembles",
+      "front": "Sur un ensemble fini E avec A et B comme sous ensemble on a \nCard ( A ∪ B ) =\nEt si disjoint \nCard ( A ∪ B ) =\nCard (Ā) =\n\nSi A_1, A_2 … forment une partition de E alors =",
+      "back": "Card ( A ∪ B ) = card (A) + Card(B) - (card(a ∩ b) \nSi disjoint =  card (A) + Card(B)\nCard (Ā) = Card(E) - card(a) \n\nSi A_1, A_2 … forment une partition de E alors = card(A_1) + Card(A_2) + Card(A_p) = Card(E)",
+      "dueDate": "2026-10-03T19:44:27.886Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791056985682",
+      "deckId": "deck-but1-ensembles",
+      "front": "A ∪ A = \nA n A =\nA\\a =\nA Δ A =\nA ∪ Ω =",
+      "back": "A ∪ A = A \nA n A = ∅\nA\\a = ∅\nA Δ A = ∅\nA ∪ Ω = Ω",
+      "dueDate": "2026-10-03T19:49:45.682Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791057778106",
+      "deckId": "deck-but1-ensembles",
+      "front": "A n Ω =\nA u ∅ =\nA n ∅ =\nSi b ⊂ a: a u b =\nSi b ⊂ a: a n b =",
+      "back": "A n Ω = A\nA u ∅ = A\nA n ∅ = ∅\nSi b ⊂ a: a u b = A\nSi b ⊂ a: a n b = B",
+      "dueDate": "2026-10-03T20:02:58.106Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791058517155",
+      "deckId": "deck-but1-ensembles",
+      "front": "Si E est de cardinal n alors P(E) =",
+      "back": "P(E) = 2^n",
+      "dueDate": "2026-10-03T20:15:17.155Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791058726914",
+      "deckId": "deck-but1-ensembles",
+      "front": "Le produit cartésien de deux ensemble E et F est l’ensemble defini par:",
+      "back": "E * F = { (x,y) | x € e et y € f}",
+      "dueDate": "2026-10-03T20:18:46.914Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791058855478",
+      "deckId": "deck-but1-ensembles",
+      "front": "Un element (x,y) dun ensemble issue du produit cartésien de deux ensembles est appelé couple et vérifie",
+      "back": "(x,y) = (x’,y’) <=> x = x’ et y = y’",
+      "dueDate": "2026-10-03T20:20:55.478Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791059171927",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soient E et F deux ensemble ,\n\nOn dit que E est inclus dans F si….\n\nOn notera alors E ⊂ F, et on dira que E est …",
+      "back": "tous les éléments de E appartiennent à F.\n\n\nUne partie ou un sous ensemble de F",
+      "dueDate": "2026-10-03T20:26:11.927Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791059588958",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soient E et F deux ensembles \nOn dit que E=F si",
+      "back": "E ⊂ F et F ⊂ E",
+      "dueDate": "2026-10-03T20:33:08.958Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791059713433",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soient E et F deux ensembles \nOn dit que E et F sont disjoints si",
+      "back": "E n F =∅",
+      "dueDate": "2026-10-03T20:35:13.433Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791060856629",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soient E et F deux sous-ensembles de Ω\n\nL’union de E et F, notée E u F est l’ensemble:\n\n\nL’intersection de E et F, notée E n F est l’ensemble:\n\nLe complémentaire de E dans Ω est notée Ē \n\n\nLes sous ensembles non vides A_1, À_2, A_p de E forment une partition de E si  :",
+      "back": "{x € Ω| x€  E v x € F} \n\n{   x € Ω| X € E ^ x € F }\n\n{x € Ω| x \\E } (€/)\n\n\nIls sont deux à deux disjoints ( A_i n A_j = ∅ pour tous I,j avec I différent de j ) \n+\nIls forment un recouvrement de E soit A_1 u A_2,.., u A_p = E",
+      "dueDate": "2026-10-03T20:54:16.629Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791061052775",
+      "deckId": "deck-but1-ensembles",
+      "front": "La différence de E et F est notée E\\F = \n\nLa différence symétrique de E et F est notée E Δ F =",
+      "back": "{ x€ e | x €/ f } \n\n{ ( E u F) \\ ( E n F )",
+      "dueDate": "2026-10-03T20:57:32.775Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791061232199",
+      "deckId": "deck-but1-ensembles",
+      "front": "Une relation binaire ( ou relation) entre deux ensembles E et F est un sous ensemble S du produit cartésien E x F",
+      "back": "Si x € e et y € f, on pose alors x R y lorsque (x,y) € S",
+      "dueDate": "2026-10-03T21:00:32.199Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791061510826",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soit R une relation définie sur E \nR est dite \n\nRéflexive si: \n\nIrreflexive si: \n\nSymétrique si: \n\nAntisymétrique si: \n\nTransitive si :",
+      "back": "Pour tout a € e , a R a \n\nPour tout a € e, non ( a R a) \n\nPour tout a, pour tout b € e ( a R b = > b R a ) \n\nPour tout a, pour tout b € e ((a R b ^ b R a) => a = b) \n\nPour tout a pour tout b pour tout c € e ((a R b et b R c) => a R c)",
+      "dueDate": "2026-10-03T21:05:10.826Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791061676898",
+      "deckId": "deck-but1-ensembles",
+      "front": "=< est reflexive :\n=< est Irreflexive :\n=< est  Symétrique:\n=< est Anti-symétrique:\n=< est Transitive:",
+      "back": "Vrai \nFaux \nFaux \nVrai \nVrai",
+      "dueDate": "2026-10-03T21:07:56.898Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791061806408",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soit E un ensemble et R une relation sur E \n\nOn dit que R est une relation d’ordre si elle est \n\n\n\n\nElle est alors …\n\n\nIl s’agit d’un ordre …\n\nUne relation d’ordre stricte est :",
+      "back": "Reflexive \nTransitive \nEt anti-symétrique \n\nElle est alors ordonnée\n\n\nLarge \n\n\nIrreflexive et transitive",
+      "dueDate": "2026-10-03T21:10:06.408Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791062041386",
+      "deckId": "deck-but1-ensembles",
+      "front": "Un ordre large est dit total si deux éléments sont toujours comparables \n\nUn ordre qui n’est pas total est dit",
+      "back": "Pour x,y € e, x <= y ou y <= x \n\nPartiel",
+      "dueDate": "2026-10-03T21:14:01.386Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791063899826",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soit <= une relation d’ordre sur un ensemble E \n\nSoit F ⊂ E non vide \n\nOn dit Que x € e est un minorant de F si tout élément de F est plus grand que x.\n\nsi un minorant de F est un élément de F on dit que c’est \n\nOn dit que x € e est un majorant de F  si tout élément de F est plus petit que x \n\nSi un majorant de F est un élément de F on dit que c’est",
+      "back": "Pour tout y € f, x <= y\n\nLe plus petit élément de F \n\nPour tout y, y € f, y <= x \n\n\n le plus grand Élément de F",
+      "dueDate": "2026-10-03T21:44:59.826Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791064107617",
+      "deckId": "deck-but1-ensembles",
+      "front": "X € F est un élément minimal de  F quand \n\n\nX € F est un élément maximal de F quand",
+      "back": "Aucun élément de F n’est strictement plus petit : pour tout y € F, y  <= x, => y = x\n\nAucune l’élément n’est strictement plus grand: pour tout y € F, x <= y,  => y = x",
+      "dueDate": "2026-10-03T21:48:27.617Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791064184191",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soit E un ensemble et R une relation sur E \nOn dit que R est une relation d’équivalence si elle est",
+      "back": "Réflexive\nTransitive \nSymétrique",
+      "dueDate": "2026-10-03T21:49:44.191Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791064632909",
+      "deckId": "deck-but1-ensembles",
+      "front": "Soit R une relation d’équivalence sur un ensemble E \nPour tout x € e on appelle Classe d’équivalence de x, modulo R\n\nL’ensemble des classes d’équivalence modulo R  est appelé \n\nE/R est naturellement une partition de P(E) et ses element forment une partition de E",
+      "back": "l’ensemble( point ou barre sur le x) x• = { y € e | x R y } \n\nEnsemble quotient de E par R et on le note E/R",
+      "dueDate": "2026-10-03T21:57:12.909Z",
       "interval": 1,
       "repetition": 0,
       "efactor": 2.5
