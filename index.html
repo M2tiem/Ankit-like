@@ -28,7 +28,7 @@
   <!-- Main Content -->
   <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
 
-    <!-- Vue Decks & Formulaires -->
+    <!-- VUE 1 : Decks & Formulaires -->
     <section id="viewDecks" class="space-y-8">
 
       <!-- Formulaires d'ajout -->
@@ -65,7 +65,21 @@
       </div>
     </section>
 
-    <!-- Vue Session de Révision -->
+    <!-- VUE 2 : Gestion des cartes d'un Paquet -->
+    <section id="viewManageDeck" class="hidden space-y-6">
+      <div class="flex items-center justify-between">
+        <button id="btnBackToDecksFromManage" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition">
+          ← Retour aux paquets
+        </button>
+        <h2 id="manageDeckTitle" class="text-xl font-bold text-slate-100"></h2>
+      </div>
+
+      <div id="manageCardsList" class="space-y-3">
+        <!-- Liste des cartes à éditer -->
+      </div>
+    </section>
+
+    <!-- VUE 3 : Session de Révision (Flashcards) -->
     <section id="viewStudy" class="hidden max-w-xl mx-auto space-y-6">
       <div class="flex items-center justify-between">
         <button id="btnBackToDecks" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition">
@@ -103,7 +117,7 @@
       </div>
     </section>
 
-    <!-- Vue Fin de session -->
+    <!-- VUE 4 : Fin de session -->
     <section id="viewComplete" class="hidden text-center py-16 space-y-4">
       <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 mb-2">🎉</div>
       <h2 class="text-2xl font-bold text-white">Session terminée !</h2>
@@ -114,6 +128,28 @@
     </section>
 
   </main>
+
+  <!-- MODALE : Édition de Carte -->
+  <div id="modalEdit" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl">
+      <h3 class="text-lg font-semibold text-white">✏️ Modifier la carte</h3>
+      <input type="hidden" id="editCardId">
+      <div class="space-y-3">
+        <div>
+          <label class="text-xs text-slate-400 mb-1 block">Recto (Question / Mot)</label>
+          <input type="text" id="editCardFront" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+        </div>
+        <div>
+          <label class="text-xs text-slate-400 mb-1 block">Verso (Réponse / Définition)</label>
+          <input type="text" id="editCardBack" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+        </div>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button id="btnCancelEdit" class="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition">Annuler</button>
+        <button id="btnSaveEdit" class="px-4 py-2 text-xs font-medium bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition">Enregistrer</button>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
