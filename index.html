@@ -2,75 +2,85 @@
 <html lang="fr" class="h-full bg-slate-900 text-slate-100">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Ankit - Flashcards</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Support des marges de sécurité iOS (encoche/barre du bas) */
+    .pb-safe { padding-bottom: env(safe-area-inset-bottom, 1rem); }
+  </style>
 </head>
-<body class="h-full flex flex-col font-sans antialiased">
+<body class="h-full flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
   <!-- Header -->
-  <header class="border-b border-slate-800 bg-slate-950/50 backdrop-blur sticky top-0 z-10">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-      <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-        Ankit ⚡
-      </h1>
-      <div class="flex items-center gap-2">
-        <button id="btnExportJSON" class="px-3 py-1.5 text-xs rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium transition flex items-center gap-1">
-          📥 Télécharger data.json
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center justify-between w-full sm:w-auto">
+        <h1 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+          Ankit ⚡
+        </h1>
+        <button id="btnOpenAddCardHeader" class="sm:hidden px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center gap-1 shadow-md shadow-indigo-600/20">
+          ➕ Carte
         </button>
-        <button id="btnResetData" class="px-3 py-1.5 text-xs rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition">
-          Réinitialiser au JSON d'origine
+      </div>
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-end text-xs">
+        <button id="btnOpenAddCard" class="hidden sm:flex px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white font-semibold transition items-center gap-1 shadow-md shadow-indigo-600/20">
+          ➕ Nouvelle carte
+        </button>
+        <button id="btnExportJSON" class="flex-1 sm:flex-initial px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-medium transition flex items-center justify-center gap-1 shadow-sm">
+          📥 <span class="hidden xs:inline">Télécharger</span> data.json
+        </button>
+        <button id="btnResetData" class="flex-1 sm:flex-initial px-3 py-2 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 active:scale-95 transition text-center">
+          Réinitialiser
         </button>
       </div>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6 sm:py-8 pb-safe">
 
-    <!-- VUE 1 : Decks & Formulaires -->
-    <section id="viewDecks" class="space-y-8">
+    <!-- VUE 1 : Decks & Formulaire Paquet -->
+    <section id="viewDecks" class="space-y-6 sm:space-y-8">
 
-      <!-- Formulaires d'ajout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Créer un Paquet -->
-        <form id="formAddDeck" class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-xl space-y-3">
-          <h3 class="text-sm font-semibold text-slate-200">➕ Créer un nouveau paquet</h3>
-          <input type="text" id="inputDeckName" placeholder="Nom du paquet (ex: Espagnol)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
-          <button type="submit" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition">
-            Créer le paquet
-          </button>
+      <!-- Formulaire de création de paquet uniquement -->
+      <div class="max-w-md mx-auto">
+        <form id="formAddDeck" class="bg-slate-800/60 border border-slate-700/60 p-4 sm:p-5 rounded-2xl space-y-3">
+          <h3 class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+            <span>➕</span> Créer un nouveau paquet
+          </h3>
+          <div class="flex gap-2">
+            <input type="text" id="inputDeckName" placeholder="Nom du paquet (ex: Espagnol)" required class="flex-1 px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+            <button type="submit" class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 active:scale-[0.99] text-white text-xs font-semibold rounded-xl transition shadow-md shadow-indigo-600/20 whitespace-nowrap">
+              Créer
+            </button>
+          </div>
         </form>
-
-<!-- Créer une Carte (Textareas) -->
-        <form id="formAddCard" class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-xl space-y-3">
-          <h3 class="text-sm font-semibold text-slate-200">➕ Ajouter une carte</h3>
-          <select id="selectDeckForCard" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
-            <option value="">-- Choisir un paquet --</option>
-          </select>
-          <textarea id="inputCardFront" rows="2" placeholder="Recto (Question / Mot)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y"></textarea>
-          <textarea id="inputCardBack" rows="2" placeholder="Verso (Réponse / Définition)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y"></textarea>
-          <button type="submit" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition">
-            Ajouter la carte
-          </button>
-        </form>
+      </div>
 
       <hr class="border-slate-800">
 
       <!-- Liste des Paquets -->
       <div class="space-y-4">
-        <h2 class="text-xl font-semibold text-slate-200">Tes paquets de révision</h2>
-        <div id="decksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg sm:text-xl font-semibold text-slate-200">Tes paquets de révision</h2>
+        </div>
+        <div id="decksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4"></div>
       </div>
     </section>
 
     <!-- VUE 2 : Gestion des cartes d'un Paquet -->
-    <section id="viewManageDeck" class="hidden space-y-6">
-      <div class="flex items-center justify-between">
-        <button id="btnBackToDecksFromManage" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition">
-          ← Retour aux paquets
+    <section id="viewManageDeck" class="hidden space-y-5">
+      <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+        <button id="btnBackToDecksFromManage" class="text-xs sm:text-sm text-slate-400 hover:text-white flex items-center gap-1 transition active:scale-95 py-1">
+          ← Retour
         </button>
-        <h2 id="manageDeckTitle" class="text-xl font-bold text-slate-100"></h2>
+        <div class="flex items-center gap-2">
+          <h2 id="manageDeckTitle" class="text-base sm:text-xl font-bold text-slate-100 truncate text-right"></h2>
+          <button id="btnAddCardFromManage" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs rounded-xl transition flex items-center gap-1">
+            ➕ Ajouter carte
+          </button>
+        </div>
       </div>
 
       <div id="manageCardsList" class="space-y-3">
@@ -79,77 +89,117 @@
     </section>
 
     <!-- VUE 3 : Session de Révision (Flashcards) -->
-    <section id="viewStudy" class="hidden max-w-xl mx-auto space-y-6">
+    <section id="viewStudy" class="hidden max-w-xl mx-auto space-y-5 sm:space-y-6">
       <div class="flex items-center justify-between">
-        <button id="btnBackToDecks" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition">
-          ← Retour aux paquets
+        <button id="btnBackToDecks" class="text-xs sm:text-sm text-slate-400 hover:text-white flex items-center gap-1 transition active:scale-95 py-1">
+          ← Quitter
         </button>
-        <span id="studyProgress" class="text-xs font-mono bg-slate-800 px-3 py-1 rounded-full text-indigo-400">
+        <span id="studyProgress" class="text-xs font-mono bg-slate-800 px-3 py-1 rounded-full text-indigo-400 border border-slate-700">
           0 / 0 cartes
         </span>
       </div>
 
-      <div id="flashcard" class="bg-slate-800 border border-slate-700 rounded-2xl p-8 min-h-[260px] flex flex-col items-center justify-center text-center cursor-pointer shadow-xl transition-all duration-300 hover:border-indigo-500/50">
-        <div id="cardContent" class="text-xl font-medium text-slate-100"></div>
-        <p id="cardHint" class="text-xs text-slate-500 mt-6 uppercase tracking-wider">
+      <!-- Flashcard adaptive -->
+      <div id="flashcard" class="bg-slate-800/90 border border-slate-700/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 min-h-[280px] sm:min-h-[320px] flex flex-col items-center justify-center text-center cursor-pointer shadow-2xl transition-all duration-300 hover:border-indigo-500/50 active:scale-[0.99] select-none">
+        <div id="cardContent" class="text-lg sm:text-2xl font-medium text-slate-100 leading-relaxed whitespace-pre-line max-w-full overflow-x-auto"></div>
+        <p id="cardHint" class="text-[11px] sm:text-xs text-slate-500 mt-6 sm:mt-8 uppercase tracking-wider font-semibold">
           Clique pour voir la réponse
         </p>
       </div>
 
-      <div id="responseButtons" class="hidden grid grid-cols-4 gap-2 pt-2">
-        <button data-grade="0" class="btn-grade bg-red-950/50 text-red-400 border border-red-800/50 hover:bg-red-900/50 py-3 rounded-xl font-medium text-xs transition flex flex-col items-center">
+      <!-- Boutons SM-2 -->
+      <div id="responseButtons" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-2">
+        <button data-grade="0" class="btn-grade bg-red-950/40 text-red-400 border border-red-800/50 hover:bg-red-900/50 active:bg-red-900/80 py-3 rounded-xl font-semibold text-xs transition flex flex-col items-center justify-center">
           <span>À revoir</span>
-          <span class="text-[10px] text-red-500/70 mt-0.5">&lt; 10 min</span>
+          <span class="text-[10px] text-red-500/70 mt-0.5 font-normal">&lt; 10 min</span>
         </button>
-        <button data-grade="3" class="btn-grade bg-orange-950/50 text-orange-400 border border-orange-800/50 hover:bg-orange-900/50 py-3 rounded-xl font-medium text-xs transition flex flex-col items-center">
+        <button data-grade="3" class="btn-grade bg-orange-950/40 text-orange-400 border border-orange-800/50 hover:bg-orange-900/50 active:bg-orange-900/80 py-3 rounded-xl font-semibold text-xs transition flex flex-col items-center justify-center">
           <span>Difficile</span>
-          <span class="text-[10px] text-orange-500/70 mt-0.5">1 jour</span>
+          <span class="text-[10px] text-orange-500/70 mt-0.5 font-normal">1 jour</span>
         </button>
-        <button data-grade="4" class="btn-grade bg-blue-950/50 text-blue-400 border border-blue-800/50 hover:bg-blue-900/50 py-3 rounded-xl font-medium text-xs transition flex flex-col items-center">
+        <button data-grade="4" class="btn-grade bg-blue-950/40 text-blue-400 border border-blue-800/50 hover:bg-blue-900/50 active:bg-blue-900/80 py-3 rounded-xl font-semibold text-xs transition flex flex-col items-center justify-center">
           <span>Bon</span>
-          <span class="text-[10px] text-blue-500/70 mt-0.5">3 jours</span>
+          <span class="text-[10px] text-blue-500/70 mt-0.5 font-normal">3 jours</span>
         </button>
-        <button data-grade="5" class="btn-grade bg-emerald-950/50 text-emerald-400 border border-emerald-800/50 hover:bg-emerald-900/50 py-3 rounded-xl font-medium text-xs transition flex flex-col items-center">
+        <button data-grade="5" class="btn-grade bg-emerald-950/40 text-emerald-400 border border-emerald-800/50 hover:bg-emerald-900/50 active:bg-emerald-900/80 py-3 rounded-xl font-semibold text-xs transition flex flex-col items-center justify-center">
           <span>Facile</span>
-          <span class="text-[10px] text-emerald-500/70 mt-0.5">6 jours</span>
+          <span class="text-[10px] text-emerald-500/70 mt-0.5 font-normal">6 jours</span>
         </button>
       </div>
     </section>
 
     <!-- VUE 4 : Fin de session -->
-    <section id="viewComplete" class="hidden text-center py-16 space-y-4">
-      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 mb-2">🎉</div>
-      <h2 class="text-2xl font-bold text-white">Session terminée !</h2>
-      <p class="text-slate-400 text-sm max-w-sm mx-auto">Tu as révisé toutes tes cartes dues pour ce paquet aujourd'hui.</p>
-      <button id="btnBackHome" class="mt-4 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl text-sm transition">
+    <section id="viewComplete" class="hidden text-center py-12 sm:py-16 space-y-4">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 text-2xl mb-2">🎉</div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white">Session terminée !</h2>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-xs sm:max-w-sm mx-auto">Tu as révisé toutes tes cartes dues pour ce paquet aujourd'hui.</p>
+      <button id="btnBackHome" class="mt-4 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-xs sm:text-sm transition shadow-lg shadow-indigo-600/30">
         Retour à l'accueil
       </button>
     </section>
 
   </main>
-<!-- MODALE : Édition de Carte (avec Textarea) -->
-  <div id="modalEdit" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-lg w-full space-y-4 shadow-2xl">
-      <h3 class="text-lg font-semibold text-white">✏️ Modifier la carte</h3>
+
+  <!-- MODALE 1 : Création / Ajout de Carte -->
+  <div id="modalAddCard" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-0 sm:p-4">
+    <div class="bg-slate-800 border border-slate-700/80 rounded-t-2xl sm:rounded-2xl p-5 sm:p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-700/60 pb-3">
+        <h3 class="text-base font-semibold text-white flex items-center gap-2">➕ Ajouter une carte</h3>
+        <button id="btnCloseAddCardModalX" class="text-slate-400 hover:text-white text-lg p-1">✕</button>
+      </div>
+
+      <form id="formAddCard" class="space-y-4">
+        <div>
+          <label class="text-xs text-slate-400 mb-1.5 block font-medium">Paquet cible</label>
+          <select id="selectDeckForCard" required class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-indigo-500 transition">
+            <option value="">-- Choisir un paquet --</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs text-slate-400 mb-1.5 block font-medium">Recto (Question / Mot)</label>
+          <textarea id="inputCardFront" rows="3" placeholder="Ex: ¿ Dónde está la biblioteca ?" required class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 resize-y transition"></textarea>
+        </div>
+        <div>
+          <label class="text-xs text-slate-400 mb-1.5 block font-medium">Verso (Réponse / Définition)</label>
+          <textarea id="inputCardBack" rows="3" placeholder="Ex: Où se trouve la bibliothèque ?" required class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 resize-y transition"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-700/60">
+          <button type="button" id="btnCancelAddCard" class="flex-1 sm:flex-initial px-4 py-2.5 text-xs font-medium text-slate-400 hover:text-white rounded-xl transition text-center">Annuler</button>
+          <button type="submit" class="flex-1 sm:flex-initial px-5 py-2.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white rounded-xl transition text-center shadow-md shadow-indigo-600/20">Créer la carte</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODALE 2 : Édition de Carte -->
+  <div id="modalEdit" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-0 sm:p-4">
+    <div class="bg-slate-800 border border-slate-700/80 rounded-t-2xl sm:rounded-2xl p-5 sm:p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-700/60 pb-3">
+        <h3 class="text-base font-semibold text-white flex items-center gap-2">✏️ Modifier la carte</h3>
+        <button id="btnCloseModalX" class="text-slate-400 hover:text-white text-lg p-1">✕</button>
+      </div>
+      
       <input type="hidden" id="editCardId">
       
       <div class="space-y-4">
         <div>
-          <label class="text-xs text-slate-400 mb-1 block font-medium">Recto (Question / Mot)</label>
-          <textarea id="editCardFront" rows="3" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y leading-relaxed" placeholder="Recto..."></textarea>
+          <label class="text-xs text-slate-400 mb-1.5 block font-medium">Recto (Question / Mot)</label>
+          <textarea id="editCardFront" rows="3" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-indigo-500 resize-y leading-relaxed" placeholder="Recto..."></textarea>
         </div>
         <div>
-          <label class="text-xs text-slate-400 mb-1 block font-medium">Verso (Réponse / Définition)</label>
-          <textarea id="editCardBack" rows="4" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y leading-relaxed" placeholder="Verso..."></textarea>
+          <label class="text-xs text-slate-400 mb-1.5 block font-medium">Verso (Réponse / Définition)</label>
+          <textarea id="editCardBack" rows="4" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-indigo-500 resize-y leading-relaxed" placeholder="Verso..."></textarea>
         </div>
       </div>
 
-      <div class="flex justify-end gap-2 pt-2">
-        <button id="btnCancelEdit" class="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition">Annuler</button>
-        <button id="btnSaveEdit" class="px-4 py-2 text-xs font-medium bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition">Enregistrer</button>
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-700/60">
+        <button id="btnCancelEdit" class="flex-1 sm:flex-initial px-4 py-2.5 text-xs font-medium text-slate-400 hover:text-white rounded-xl transition text-center">Annuler</button>
+        <button id="btnSaveEdit" class="flex-1 sm:flex-initial px-5 py-2.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white rounded-xl transition text-center shadow-md shadow-indigo-600/20">Enregistrer</button>
       </div>
     </div>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>

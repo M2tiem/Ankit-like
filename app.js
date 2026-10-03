@@ -30,13 +30,23 @@ const btnBackHome = document.getElementById('btnBackHome');
 const btnResetData = document.getElementById('btnResetData');
 const btnExportJSON = document.getElementById('btnExportJSON');
 
-// Formulaires & Modale
-const formAddDeck = document.getElementById('formAddDeck');
+// Boutons d'ouverture de la modale d'ajout
+const btnOpenAddCard = document.getElementById('btnOpenAddCard');
+const btnOpenAddCardHeader = document.getElementById('btnOpenAddCardHeader');
+const btnAddCardFromManage = document.getElementById('btnAddCardFromManage');
+
+// Modale Ajout de carte
+const modalAddCard = document.getElementById('modalAddCard');
 const formAddCard = document.getElementById('formAddCard');
-const inputDeckName = document.getElementById('inputDeckName');
 const selectDeckForCard = document.getElementById('selectDeckForCard');
 const inputCardFront = document.getElementById('inputCardFront');
 const inputCardBack = document.getElementById('inputCardBack');
+const btnCloseAddCardModalX = document.getElementById('btnCloseAddCardModalX');
+const btnCancelAddCard = document.getElementById('btnCancelAddCard');
+
+// Formulaire Paquet & Modale Édition
+const formAddDeck = document.getElementById('formAddDeck');
+const inputDeckName = document.getElementById('inputDeckName');
 
 const modalEdit = document.getElementById('modalEdit');
 const editCardId = document.getElementById('editCardId');
@@ -44,6 +54,7 @@ const editCardFront = document.getElementById('editCardFront');
 const editCardBack = document.getElementById('editCardBack');
 const btnCancelEdit = document.getElementById('btnCancelEdit');
 const btnSaveEdit = document.getElementById('btnSaveEdit');
+const btnCloseModalX = document.getElementById('btnCloseModalX');
 
 // --- 1. INITIALISATION ---
 
@@ -99,46 +110,69 @@ function renderDecks() {
     const dueCards = deckCards.filter(c => new Date(c.dueDate) <= now);
 
     const cardEl = document.createElement('div');
-    cardEl.className = 'bg-slate-800 border border-slate-700/80 hover:border-slate-600 rounded-xl p-5 flex items-center justify-between transition group';
+    cardEl.className = 'bg-slate-800 border border-slate-700/80 hover:border-slate-600 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 transition group';
     cardEl.innerHTML = `
       <div>
-        <h3 class="font-semibold text-lg text-slate-100 group-hover:text-indigo-400 transition">${deck.name}</h3>
-        <p class="text-xs text-slate-400 mt-1">${deckCards.length} cartes au total</p>
+        <h3 class="font-semibold text-base sm:text-lg text-slate-100 group-hover:text-indigo-400 transition">${deck.name}</h3>
+        <p class="text-xs text-slate-400 mt-0.5">${deckCards.length} carte(s)</p>
       </div>
-      <div class="flex items-center gap-2">
-        <button data-id="${deck._id}" class="btn-manage-deck p-2 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white text-xs rounded-lg transition" title="Gérer les cartes">
-          ⚙️
-        </button>
-        <span class="px-2.5 py-1 text-xs font-semibold rounded-md ${dueCards.length > 0 ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : 'bg-slate-700/50 text-slate-400'}">
-          ${dueCards.length} à réviser
-        </span>
-        <button data-id="${deck._id}" class="btn-start-study px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition disabled:opacity-40 disabled:hover:bg-indigo-600" ${dueCards.length === 0 ? 'disabled' : ''}>
-          Réviser
-        </button>
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0">
+        <div class="flex items-center gap-1.5">
+          <button data-id="${deck._id}" class="btn-manage-deck p-2 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white text-xs rounded-lg transition" title="Gérer les cartes">
+            ⚙️
+          </button>
+          <button data-id="${deck._id}" class="btn-add-card-deck p-2 border border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 text-xs rounded-lg transition" title="Ajouter une carte">
+            ➕ Carte
+          </button>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 text-xs font-semibold rounded-md ${dueCards.length > 0 ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : 'bg-slate-700/50 text-slate-400'}">
+            ${dueCards.length} due(s)
+          </span>
+          <button data-id="${deck._id}" class="btn-start-study px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition disabled:opacity-40 disabled:hover:bg-indigo-600" ${dueCards.length === 0 ? 'disabled' : ''}>
+            Réviser
+          </button>
+        </div>
       </div>
     `;
     decksGrid.appendChild(cardEl);
   });
 }
 
-function updateDeckSelect() {
+function updateDeckSelect(preselectedDeckId = null) {
   selectDeckForCard.innerHTML = '<option value="">-- Choisir un paquet --</option>';
   decks.forEach(d => {
     const opt = document.createElement('option');
     opt.value = d._id;
     opt.textContent = d.name;
+    if (preselectedDeckId && d._id === preselectedDeckId) {
+      opt.selected = true;
+    }
     selectDeckForCard.appendChild(opt);
   });
 }
 
-// --- 3. VUE DE GESTION / ÉDITION DES CARTES ---
+// --- 3. MODALE DE CRÉATION DE CARTE ---
+
+function openAddCardModal(deckId = null) {
+  updateDeckSelect(deckId || currentDeckId);
+  inputCardFront.value = '';
+  inputCardBack.value = '';
+  modalAddCard.classList.remove('hidden');
+}
+
+function closeAddCardModal() {
+  modalAddCard.classList.add('hidden');
+}
+
+// --- 4. VUE DE GESTION / ÉDITION DES CARTES ---
 
 function openManageDeck(deckId) {
   currentDeckId = deckId;
   const deck = decks.find(d => d._id === deckId);
   if (!deck) return;
 
-  manageDeckTitle.textContent = `Gestion : ${deck.name}`;
+  manageDeckTitle.textContent = deck.name;
   renderManageCards();
   showView('manage');
 }
@@ -148,21 +182,21 @@ function renderManageCards() {
   const deckCards = cards.filter(c => c.deckId === currentDeckId);
 
   if (deckCards.length === 0) {
-    manageCardsList.innerHTML = `<p class="text-slate-500 text-sm">Aucune carte dans ce paquet.</p>`;
+    manageCardsList.innerHTML = `<p class="text-slate-500 text-sm py-4 text-center">Aucune carte dans ce paquet.</p>`;
     return;
   }
 
   deckCards.forEach(c => {
     const item = document.createElement('div');
-    item.className = 'bg-slate-800/80 border border-slate-700 p-4 rounded-xl flex items-center justify-between gap-4';
+    item.className = 'bg-slate-800/80 border border-slate-700 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4';
     item.innerHTML = `
-      <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium text-slate-100 truncate"><span class="text-slate-400">R:</span> ${c.front}</p>
-        <p class="text-xs text-slate-400 truncate mt-0.5"><span class="text-slate-500">V:</span> ${c.back}</p>
+      <div class="flex-1 min-w-0 w-full space-y-1">
+        <p class="text-sm font-medium text-slate-100 whitespace-pre-line"><span class="text-indigo-400 font-bold">R:</span> ${c.front}</p>
+        <p class="text-xs text-slate-400 whitespace-pre-line"><span class="text-slate-500 font-bold">V:</span> ${c.back}</p>
       </div>
-      <div class="flex items-center gap-2">
-        <button data-id="${c._id}" class="btn-open-edit px-2.5 py-1.5 text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg transition">✏️ Modifier</button>
-        <button data-id="${c._id}" class="btn-delete-card px-2.5 py-1.5 text-xs bg-red-950/50 hover:bg-red-900/50 text-red-400 border border-red-800/40 rounded-lg transition">🗑️ Supprimer</button>
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-end border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0">
+        <button data-id="${c._id}" class="btn-open-edit px-3 py-1.5 text-xs bg-slate-700 hover:bg-slate-600 active:scale-95 text-slate-200 rounded-lg transition flex items-center gap-1">✏️ Éditer</button>
+        <button data-id="${c._id}" class="btn-delete-card px-3 py-1.5 text-xs bg-red-950/50 hover:bg-red-900/50 active:scale-95 text-red-400 border border-red-800/40 rounded-lg transition flex items-center gap-1">🗑️ Supprimer</button>
       </div>
     `;
     manageCardsList.appendChild(item);
@@ -200,7 +234,7 @@ function deleteCard(cardId) {
   }
 }
 
-// --- 4. AJOUT & EXPORT ---
+// --- 5. AJOUT & EXPORT ---
 
 function addDeck(name) {
   const newDeck = { _id: 'deck-' + Date.now(), name: name.trim() };
@@ -223,6 +257,12 @@ function addCard(deckId, front, back) {
   };
   cards.push(newCard);
   saveToStorage();
+
+  // Si on est dans la vue de gestion du paquet qu'on vient d'alimenter, rafraîchir la liste
+  if (currentDeckId === deckId) {
+    renderManageCards();
+  }
+
   renderDecks();
 }
 
@@ -241,7 +281,7 @@ function exportJSON() {
   URL.revokeObjectURL(url);
 }
 
-// --- 5. LOGIQUE DE RÉVISION (SM-2) ---
+// --- 6. LOGIQUE DE RÉVISION (SM-2) ---
 
 function startStudy(deckId) {
   currentDeckId = deckId;
@@ -339,9 +379,10 @@ function showView(viewName) {
   if (viewName === 'complete') viewComplete.classList.remove('hidden');
 }
 
-// --- 6. ÉVÉNEMENTS ---
+// --- 7. ÉVÉNEMENTS ---
 
 function setupEventListeners() {
+  // Création de paquet
   formAddDeck.addEventListener('submit', (e) => {
     e.preventDefault();
     if (inputDeckName.value) {
@@ -350,27 +391,39 @@ function setupEventListeners() {
     }
   });
 
+  // Ouverture Modale Création Carte
+  if (btnOpenAddCard) btnOpenAddCard.addEventListener('click', () => openAddCardModal());
+  if (btnOpenAddCardHeader) btnOpenAddCardHeader.addEventListener('click', () => openAddCardModal());
+  if (btnAddCardFromManage) btnAddCardFromManage.addEventListener('click', () => openAddCardModal(currentDeckId));
+
+  // Fermeture Modale Création Carte
+  if (btnCloseAddCardModalX) btnCloseAddCardModalX.addEventListener('click', closeAddCardModal);
+  if (btnCancelAddCard) btnCancelAddCard.addEventListener('click', closeAddCardModal);
+
+  // Soumission Ajout Carte
   formAddCard.addEventListener('submit', (e) => {
     e.preventDefault();
     if (selectDeckForCard.value && inputCardFront.value && inputCardBack.value) {
       addCard(selectDeckForCard.value, inputCardFront.value, inputCardBack.value);
-      inputCardFront.value = '';
-      inputCardBack.value = '';
+      closeAddCardModal();
     }
   });
 
   btnExportJSON.addEventListener('click', exportJSON);
 
-  // Clics sur la grille des decks (Réviser ou Gérer)
+  // Clics sur la grille des decks
   decksGrid.addEventListener('click', (e) => {
     const btnStudy = e.target.closest('.btn-start-study');
     if (btnStudy) startStudy(btnStudy.dataset.id);
 
     const btnManage = e.target.closest('.btn-manage-deck');
     if (btnManage) openManageDeck(btnManage.dataset.id);
+
+    const btnAddCard = e.target.closest('.btn-add-card-deck');
+    if (btnAddCard) openAddCardModal(btnAddCard.dataset.id);
   });
 
-  // Événements dans la vue de gestion des cartes
+  // Événements vue gestion des cartes
   manageCardsList.addEventListener('click', (e) => {
     const btnEdit = e.target.closest('.btn-open-edit');
     if (btnEdit) openEditModal(btnEdit.dataset.id);
@@ -379,7 +432,8 @@ function setupEventListeners() {
     if (btnDelete) deleteCard(btnDelete.dataset.id);
   });
 
-  // Actions de la modale d'édition
+  // Actions modale édition
+  if (btnCloseModalX) btnCloseModalX.addEventListener('click', () => modalEdit.classList.add('hidden'));
   btnCancelEdit.addEventListener('click', () => modalEdit.classList.add('hidden'));
   btnSaveEdit.addEventListener('click', saveCardEdit);
 
