@@ -42,19 +42,18 @@
           </button>
         </form>
 
-        <!-- Créer une Carte -->
+<!-- Créer une Carte (Textareas) -->
         <form id="formAddCard" class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-xl space-y-3">
           <h3 class="text-sm font-semibold text-slate-200">➕ Ajouter une carte</h3>
           <select id="selectDeckForCard" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
             <option value="">-- Choisir un paquet --</option>
           </select>
-          <input type="text" id="inputCardFront" placeholder="Recto (Question / Mot)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
-          <input type="text" id="inputCardBack" placeholder="Verso (Réponse / Définition)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+          <textarea id="inputCardFront" rows="2" placeholder="Recto (Question / Mot)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y"></textarea>
+          <textarea id="inputCardBack" rows="2" placeholder="Verso (Réponse / Définition)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y"></textarea>
           <button type="submit" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition">
             Ajouter la carte
           </button>
         </form>
-      </div>
 
       <hr class="border-slate-800">
 
@@ -128,29 +127,29 @@
     </section>
 
   </main>
-
-  <!-- MODALE : Édition de Carte -->
+<!-- MODALE : Édition de Carte (avec Textarea) -->
   <div id="modalEdit" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-lg w-full space-y-4 shadow-2xl">
       <h3 class="text-lg font-semibold text-white">✏️ Modifier la carte</h3>
       <input type="hidden" id="editCardId">
-      <div class="space-y-3">
+      
+      <div class="space-y-4">
         <div>
-          <label class="text-xs text-slate-400 mb-1 block">Recto (Question / Mot)</label>
-          <input type="text" id="editCardFront" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+          <label class="text-xs text-slate-400 mb-1 block font-medium">Recto (Question / Mot)</label>
+          <textarea id="editCardFront" rows="3" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y leading-relaxed" placeholder="Recto..."></textarea>
         </div>
         <div>
-          <label class="text-xs text-slate-400 mb-1 block">Verso (Réponse / Définition)</label>
-          <input type="text" id="editCardBack" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+          <label class="text-xs text-slate-400 mb-1 block font-medium">Verso (Réponse / Définition)</label>
+          <textarea id="editCardBack" rows="4" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 resize-y leading-relaxed" placeholder="Verso..."></textarea>
         </div>
       </div>
+
       <div class="flex justify-end gap-2 pt-2">
         <button id="btnCancelEdit" class="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-lg transition">Annuler</button>
         <button id="btnSaveEdit" class="px-4 py-2 text-xs font-medium bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition">Enregistrer</button>
       </div>
     </div>
   </div>
-
   <script src="app.js"></script>
 </body>
 </html>
