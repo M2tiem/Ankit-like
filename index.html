@@ -14,29 +14,58 @@
       <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
         Ankit ⚡
       </h1>
-      <div class="flex gap-2">
+      <div class="flex items-center gap-2">
+        <button id="btnExportJSON" class="px-3 py-1.5 text-xs rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium transition flex items-center gap-1">
+          📥 Télécharger data.json
+        </button>
         <button id="btnResetData" class="px-3 py-1.5 text-xs rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition">
-          Réinitialiser aux données JSON
+          Réinitialiser au JSON d'origine
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Container principal -->
+  <!-- Main Content -->
   <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
 
-    <!-- VUE 1 : Liste des Decks -->
-    <section id="viewDecks" class="space-y-6">
-      <div class="flex items-center justify-between">
-        <h2 class="text-xl font-semibold text-slate-200">Tes paquets de révision</h2>
+    <!-- Vue Decks & Formulaires -->
+    <section id="viewDecks" class="space-y-8">
+
+      <!-- Formulaires d'ajout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Créer un Paquet -->
+        <form id="formAddDeck" class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-xl space-y-3">
+          <h3 class="text-sm font-semibold text-slate-200">➕ Créer un nouveau paquet</h3>
+          <input type="text" id="inputDeckName" placeholder="Nom du paquet (ex: Espagnol)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+          <button type="submit" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition">
+            Créer le paquet
+          </button>
+        </form>
+
+        <!-- Créer une Carte -->
+        <form id="formAddCard" class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-xl space-y-3">
+          <h3 class="text-sm font-semibold text-slate-200">➕ Ajouter une carte</h3>
+          <select id="selectDeckForCard" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+            <option value="">-- Choisir un paquet --</option>
+          </select>
+          <input type="text" id="inputCardFront" placeholder="Recto (Question / Mot)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+          <input type="text" id="inputCardBack" placeholder="Verso (Réponse / Définition)" required class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+          <button type="submit" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-lg transition">
+            Ajouter la carte
+          </button>
+        </form>
       </div>
 
-      <div id="decksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Généré dynamiquement -->
+      <hr class="border-slate-800">
+
+      <!-- Liste des Paquets -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-200">Tes paquets de révision</h2>
+        <div id="decksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
       </div>
     </section>
 
-    <!-- VUE 2 : Session de Révision (Flashcards) -->
+    <!-- Vue Session de Révision -->
     <section id="viewStudy" class="hidden max-w-xl mx-auto space-y-6">
       <div class="flex items-center justify-between">
         <button id="btnBackToDecks" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition">
@@ -47,21 +76,17 @@
         </span>
       </div>
 
-      <!-- Carte Flashcard -->
       <div id="flashcard" class="bg-slate-800 border border-slate-700 rounded-2xl p-8 min-h-[260px] flex flex-col items-center justify-center text-center cursor-pointer shadow-xl transition-all duration-300 hover:border-indigo-500/50">
-        <div id="cardContent" class="text-xl font-medium text-slate-100">
-          <!-- Text front / back -->
-        </div>
+        <div id="cardContent" class="text-xl font-medium text-slate-100"></div>
         <p id="cardHint" class="text-xs text-slate-500 mt-6 uppercase tracking-wider">
           Clique pour voir la réponse
         </p>
       </div>
 
-      <!-- Boutons de réponse (SM-2 Algorithm) -->
       <div id="responseButtons" class="hidden grid grid-cols-4 gap-2 pt-2">
         <button data-grade="0" class="btn-grade bg-red-950/50 text-red-400 border border-red-800/50 hover:bg-red-900/50 py-3 rounded-xl font-medium text-xs transition flex flex-col items-center">
-          <span>A revoir</span>
-          <span class="text-[10px] text-red-500/70 mt-0.5">&lt; 1 min</span>
+          <span>À revoir</span>
+          <span class="text-[10px] text-red-500/70 mt-0.5">&lt; 10 min</span>
         </button>
         <button data-grade="3" class="btn-grade bg-orange-950/50 text-orange-400 border border-orange-800/50 hover:bg-orange-900/50 py-3 rounded-xl font-medium text-xs transition flex flex-col items-center">
           <span>Difficile</span>
@@ -78,15 +103,11 @@
       </div>
     </section>
 
-    <!-- VUE 3 : Fin de session -->
+    <!-- Vue Fin de session -->
     <section id="viewComplete" class="hidden text-center py-16 space-y-4">
-      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 mb-2">
-        🎉
-      </div>
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 mb-2">🎉</div>
       <h2 class="text-2xl font-bold text-white">Session terminée !</h2>
-      <p class="text-slate-400 text-sm max-w-sm mx-auto">
-        Tu as révisé toutes tes cartes dues pour ce paquet aujourd'hui.
-      </p>
+      <p class="text-slate-400 text-sm max-w-sm mx-auto">Tu as révisé toutes tes cartes dues pour ce paquet aujourd'hui.</p>
       <button id="btnBackHome" class="mt-4 px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl text-sm transition">
         Retour à l'accueil
       </button>
