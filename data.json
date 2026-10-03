@@ -12,9 +12,10 @@
       "_id": "deck-1791055909672",
       "name": "Japonais"
     },
-    {"_id": "deck-but1-go",
-"name": "BUT 1 - Programmation : Langage Go (S1)"
-  }
+    {
+      "_id": "deck-but1-go",
+      "name": "BUT 1 - Programmation : Langage Go (S1)"
+    }
   ],
   "cards": [
     {
@@ -100,8 +101,8 @@
     {
       "_id": "card-1791031531655",
       "deckId": "deck-but1-ensembles",
-      "front": "Distribution du quantificateur \n\n\n\npour tout X ( p(x) et q(x)) <=> \n\n\n\nIl y a X (p(x) ou q(x)) <=>\n\n\non ne peut pas distribuer \n\n\n\n• pour tout sur le ou \n\n• il y a sur le et",
-      "back": "( pour tout x, P(X)) et (pour tout x, q(x)) \n(il y a x,p(x)) ou ( il y a x, q(x))",
+      "front": "Distribution du quantificateur \n\n\n\npour tout X ( p(x) et q(x)) <=> \n\n\n\nIl y a X (p(x) ou q(x)) <=>\n\n\non ne peut pas distribuer \n\n\n\n• pour tout sur le ou \n\n• il y a sur le et",
+      "back": "( pour tout x, P(X)) et (pour tout x, q(x)) \n(il y a x,p(x)) ou ( il y a x, q(x))",
       "dueDate": "2026-10-03T12:45:31.655Z",
       "interval": 1,
       "repetition": 0,
@@ -111,7 +112,7 @@
       "_id": "card-1791031886275",
       "deckId": "deck-but1-ensembles",
       "front": "Définition prédicat",
-      "back": "Un prédicat est un énoncé sans valeur de vérité dans lequel intervient au moins une variable et qui devient une proposition par ajout de quantificateurs \n\n\n\n\n\nune variable introduite est dite liée",
+      "back": "Un prédicat est un énoncé sans valeur de vérité dans lequel intervient au moins une variable et qui devient une proposition par ajout de quantificateurs \n\n\n\n\n\nune variable introduite est dite liée",
       "dueDate": "2026-10-03T12:51:26.275Z",
       "interval": 1,
       "repetition": 0,
@@ -130,8 +131,8 @@
     {
       "_id": "card-1791032004452",
       "deckId": "deck-but1-ensembles",
-      "front": "Clause unitaire \n\n\n\nlittéral pur",
-      "back": "Une seule variable dans la clause ( située entre plusieurs et) \n\n\n\nliteral pur : toujours sous sa forme ou sous sa forme négative dans l'ensemble de la proposition",
+      "front": "Clause unitaire \n\n\n\nlittéral pur",
+      "back": "Une seule variable dans la clause ( située entre plusieurs et) \n\n\n\nliteral pur : toujours sous sa forme ou sous sa forme négative dans l'ensemble de la proposition",
       "dueDate": "2026-10-03T12:53:24.452Z",
       "interval": 1,
       "repetition": 0,
@@ -141,7 +142,7 @@
       "_id": "card-1791032081789",
       "deckId": "deck-but1-ensembles",
       "front": "Définir la commutativité",
-      "back": "On dit qu'un opérateur est commutatif lorsque l'ordre des opérateurs n'est pas important \n\n\n\nquelque soit à et B on a\n\n\n\na* B = B  * a",
+      "back": "On dit qu'un opérateur est commutatif lorsque l'ordre des opérateurs n'est pas important \n\n\n\nquelque soit à et B on a\n\n\n\na* B = B  * a",
       "dueDate": "2026-10-03T12:54:41.789Z",
       "interval": 1,
       "repetition": 0,
@@ -151,7 +152,7 @@
       "_id": "card-1791032140781",
       "deckId": "deck-but1-ensembles",
       "front": "Définir la distributivité",
-      "back": "On dit qu'un opérateur est distributif sur tel que \n\nA * ( b•  c) =( a *b) • ( a* c)",
+      "back": "On dit qu'un opérateur est distributif sur tel que \n\nA * ( b•  c) =( a *b) • ( a* c)",
       "dueDate": "2026-10-03T12:55:40.781Z",
       "interval": 1,
       "repetition": 0,
@@ -160,7 +161,7 @@
     {
       "_id": "card-1791032180231",
       "deckId": "deck-but1-ensembles",
-      "front": "Loi de Morgan \n\n\nsoit p et q deux variables propositionnelles alors :",
+      "front": "Loi de Morgan \n\n\nsoit p et q deux variables propositionnelles alors :",
       "back": "non( p et q) <=> non p ou non q\n\n\n\nnon (p ou q) <=> non p et non q",
       "dueDate": "2026-10-03T12:56:20.231Z",
       "interval": 1,
@@ -171,7 +172,7 @@
       "_id": "card-1791032253336",
       "deckId": "deck-but1-ensembles",
       "front": "Définir associativité",
-      "back": "On dit qu'un opérateur est associatif lorsque l'ordre des opérations n'a pas d'importance \n\n\n\nsoit a,b et c on a \n\n\n\n(a b )  c = c ( a  b)",
+      "back": "On dit qu'un opérateur est associatif lorsque l'ordre des opérations n'a pas d'importance \n\n\n\nsoit a,b et c on a \n\n\n\n(a b )  c = c ( a  b)",
       "dueDate": "2026-10-03T12:57:33.336Z",
       "interval": 1,
       "repetition": 0,
@@ -180,8 +181,8 @@
     {
       "_id": "card-1791032304240",
       "deckId": "deck-but1-ensembles",
-      "front": "Soit p et q deux variables propositionnelles alors \n\n\n\n(P <=> Q)  <=> ? \n\n\n( deux réponses )",
-      "back": "((P=> Q) et ( Q=> P)) \n\n\n\n((P et Q)) ou (non P et non Q))",
+      "front": "Soit p et q deux variables propositionnelles alors \n\n\n\n(P <=> Q)  <=> ? \n\n\n( deux réponses )",
+      "back": "((P=> Q) et ( Q=> P)) \n\n\n\n((P et Q)) ou (non P et non Q))",
       "dueDate": "2026-10-03T12:58:24.240Z",
       "interval": 1,
       "repetition": 0,
@@ -220,8 +221,8 @@
     {
       "_id": "card-1791056667886",
       "deckId": "deck-but1-ensembles",
-      "front": "Sur un ensemble fini E avec A et B comme sous ensemble on a \nCard ( A ∪ B ) =\nEt si disjoint \nCard ( A ∪ B ) =\nCard (Ā) =\n\nSi A_1, A_2 … forment une partition de E alors =",
-      "back": "Card ( A ∪ B ) = card (A) + Card(B) - (card(a ∩ b) \nSi disjoint =  card (A) + Card(B)\nCard (Ā) = Card(E) - card(a) \n\nSi A_1, A_2 … forment une partition de E alors = card(A_1) + Card(A_2) + Card(A_p) = Card(E)",
+      "front": "Sur un ensemble fini E avec A et B comme sous ensemble on a \nCard ( A ∪ B ) =\nEt si disjoint \nCard ( A ∪ B ) =\nCard (Ā) =\n\nSi A_1, A_2 … forment une partition de E alors =",
+      "back": "Card ( A ∪ B ) = card (A) + Card(B) - (card(a ∩ b) \nSi disjoint =  card (A) + Card(B)\nCard (Ā) = Card(E) - card(a) \n\nSi A_1, A_2 … forment une partition de E alors = card(A_1) + Card(A_2) + Card(A_p) = Card(E)",
       "dueDate": "2026-10-03T19:44:27.886Z",
       "interval": 1,
       "repetition": 0,
@@ -310,7 +311,7 @@
     {
       "_id": "card-1791060856629",
       "deckId": "deck-but1-ensembles",
-      "front": "Soient E et F deux sous-ensembles de Ω\n\nL’union de E et F, notée E u F est l’ensemble:\n\n\nL’intersection de E et F, notée E n F est l’ensemble:\n\nLe complémentaire de E dans Ω est notée Ē \n\n\nLes sous ensembles non vides A_1, À_2, A_p de E forment une partition de E si  :",
+      "front": "Soient E et F deux sous-ensembles de Ω\n\nL’union de E et F, notée E u F est l’ensemble:\n\n\nL’intersection de E et F, notée E n F est l’ensemble:\n\nLe complémentaire de E dans Ω est notée Ē \n\n\nLes sous ensembles non vides A_1, À_2, A_p de E forment une partition de E si  :",
       "back": "{x € Ω| x€  E v x € F} \n\n{   x € Ω| X € E ^ x € F }\n\n{x € Ω| x \\E } (€/)\n\n\nIls sont deux à deux disjoints ( A_i n A_j = ∅ pour tous I,j avec I différent de j ) \n+\nIls forment un recouvrement de E soit A_1 u A_2,.., u A_p = E",
       "dueDate": "2026-10-03T20:54:16.629Z",
       "interval": 1,
@@ -410,114 +411,112 @@
     {
       "_id": "card-1791064632909",
       "deckId": "deck-but1-ensembles",
-      "front": "Soit R une relation d’équivalence sur un ensemble E \nPour tout x € e on appelle Classe d’équivalence de x, modulo R\n\nL’ensemble des classes d’équivalence modulo R  est appelé \n\nE/R est naturellement une partition de P(E) et ses element forment une partition de E",
+      "front": "Soit R une relation d’équivalence sur un ensemble E \nPour tout x € e on appelle Classe d’équivalence de x, modulo R\n\nL’ensemble des classes d’équivalence modulo R  est appelé \n\nE/R est naturally une partition de P(E) et ses element forment une partition de E",
       "back": "l’ensemble( point ou barre sur le x) x• = { y € e | x R y } \n\nEnsemble quotient de E par R et on le note E/R",
       "dueDate": "2026-10-03T21:57:12.909Z",
       "interval": 1,
       "repetition": 0,
       "efactor": 2.5
     },
-
     {
-    "_id": "card-go-1",
-    "deckId": "deck-but1-go",
-    "front": "Quelle est la différence entre une déclaration de variable classique et une déclaration courte avec := en Go ?",
-    "back": "• Déclaration classique : var x int ou var x int = 5 (peut spécifier explicitement le type, utile au niveau global d'un package).\n• Déclaration courte : x := 5 (infère automatiquement le type, utilisable uniquement dans le corps d'une fonction).",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-1",
+      "deckId": "deck-but1-go",
+      "front": "Quelle est la différence entre une déclaration de variable classique et une déclaration courte avec := en Go ?",
+      "back": "• Déclaration classique : var x int ou var x int = 5 (peut spécifier explicitement le type, utile au niveau global d'un package).\n• Déclaration courte : x := 5 (infère automatiquement le type, utilisable uniquement dans le corps d'une fonction).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-2",
-    "deckId": "deck-but1-go",
-    "front": "Quelle est la valeur par défaut (zero value) des types fondamentaux en Go (int, float64, bool, string, pointeur/slice) ?",
-    "back": "• int / float64 : 0 / 0.0\n• bool : false\n• string : "" (chaîne vide)\n• pointeur / slice / map : nil",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-2",
+      "deckId": "deck-but1-go",
+      "front": "Quelle est la valeur par défaut (zero value) des types fondamentaux en Go (int, float64, bool, string, pointeur/slice) ?",
+      "back": "• int / float64 : 0 / 0.0\n• bool : false\n• string : \"\" (chaîne vide)\n• pointeur / slice / map : nil",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-3",
-    "deckId": "deck-but1-go",
-    "front": "Comment écrire une boucle for classique et l'équivalent d'une boucle while en Go ?",
-    "back": "• Boucle classique (3 parties) :\nfor i := 0; i < 10; i++ {\n    // code\n}\n\n• Equivalent du while (condition seule) :\nfor condition {\n    // code\n}\n\n• Boucle infinie :\nfor {\n    // code\n}",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-3",
+      "deckId": "deck-but1-go",
+      "front": "Comment écrire une boucle for classique et l'équivalent d'une boucle while en Go ?",
+      "back": "• Boucle classique (3 parties) :\nfor i := 0; i < 10; i++ {\n    // code\n}\n\n• Equivalent du while (condition seule) :\nfor condition {\n    // code\n}\n\n• Boucle infinie :\nfor {\n    // code\n}",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-4",
-    "deckId": "deck-but1-go",
-    "front": "Quelle est la syntaxe d'une fonction qui retourne plusieurs valeurs en Go ?",
-    "back": "func divMod(a int, b int) (int, int) {\n    return a / b, a % b\n}\n\nAppel :\nq, r := divMod(10, 3)",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-4",
+      "deckId": "deck-but1-go",
+      "front": "Quelle est la syntaxe d'une fonction qui retourne plusieurs valeurs en Go ?",
+      "back": "func divMod(a int, b int) (int, int) {\n    return a / b, a % b\n}\n\nAppel :\nq, r := divMod(10, 3)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-5",
-    "deckId": "deck-but1-go",
-    "front": "Quelle est la différence fondamentale entre un Tableau (Array) et une Slice en Go ?",
-    "back": "• Tableau (Array) : Taille FIXE déterminée à la déclaration.\nEx: var t [5]int (le type fait partie de la taille).\n\n• Slice : Vue dynamique sur un tableau sous-jacent, taille VARIABLE.\nEx: var s []int ou s := make([]int, 5).",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-5",
+      "deckId": "deck-but1-go",
+      "front": "Quelle est la différence fondamentale entre un Tableau (Array) et une Slice en Go ?",
+      "back": "• Tableau (Array) : Taille FIXE déterminée à la déclaration.\nEx: var t [5]int (le type fait partie de la taille).\n\n• Slice : Vue dynamique sur un tableau sous-jacent, taille VARIABLE.\nEx: var s []int ou s := make([]int, 5).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-6",
-    "deckId": "deck-but1-go",
-    "front": "Comment ajouter un élément à une slice et comment fonctionne append ?",
-    "back": "On utilise la fonction intégrée append :\n\ns := []int{1, 2}\ns = append(s, 3)\n\nNote : append peut réallouer un tableau sous-jacent plus grand si la capacité maximale est atteinte, d'où la réaffectation à s.",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-6",
+      "deckId": "deck-but1-go",
+      "front": "Comment ajouter un élément à une slice et comment fonctionne append ?",
+      "back": "On utilise la fonction intégrée append :\n\ns := []int{1, 2}\ns = append(s, 3)\n\nNote : append peut réallouer un tableau sous-jacent plus grand si la capacité maximale est atteinte, d'où la réaffectation à s.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-7",
-    "deckId": "deck-but1-go",
-    "front": "Que font les opérateurs & et * lorsqu'ils sont utilisés avec des pointeurs en Go ?",
-    "back": "• & (Adresse de) : Récupère l'adresse mémoire d'une variable.\nEx: p := &x (p contient l'adresse de x).\n\n• * (Déréférencement) : Accède à la valeur pointée par une adresse.\nEx: *p = 10 (modifie la valeur à l'adresse contenue dans p).",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-7",
+      "deckId": "deck-but1-go",
+      "front": "Que font les opérateurs & et * lorsqu'ils sont utilisés avec des pointeurs en Go ?",
+      "back": "• & (Adresse de) : Récupère l'adresse mémoire d'une variable.\nEx: p := &x (p contient l'adresse de x).\n\n• * (Déréférencement) : Accède à la valeur pointée par une adresse.\nEx: *p = 10 (modifie la valeur à l'adresse contenue dans p).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-8",
-    "deckId": "deck-but1-go",
-    "front": "Pourquoi utilise-t-on le passage par pointeur (passage par adresse) lors de l'appel d'une fonction ?",
-    "back": "Par défaut, Go passe TOUT par valeur (copie des arguments).\nOn utilise un pointeur pour :\n1. Permettre à la fonction de modifier directement la variable d'origine.\n2. Éviter de copier de grandes structures en mémoire.",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-8",
+      "deckId": "deck-but1-go",
+      "front": "Pourquoi utilise-t-on le passage par pointeur (passage par adresse) lors de l'appel d'une fonction ?",
+      "back": "Par défaut, Go passe TOUT par valeur (copie des arguments).\nOn utilise un pointeur pour :\n1. Permettre à la fonction de modifier directement la variable d'origine.\n2. Éviter de copier de grandes structures en mémoire.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-9",
-    "deckId": "deck-but1-go",
-    "front": "Comment déclarer et instancier une structure (struct) en Go ?",
-    "back": "Déclaration :\ntype Etudiant struct {\n    Nom string\n    Note float64\n}\n\nInstanciation :\ne1 := Etudiant{Nom: "Alice", Note: 15.5}",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-9",
+      "deckId": "deck-but1-go",
+      "front": "Comment déclarer et instancier une structure (struct) en Go ?",
+      "back": "Déclaration :\ntype Etudiant struct {\n    Nom string\n    Note float64\n}\n\nInstanciation :\ne1 := Etudiant{Nom: \"Alice\", Note: 15.5}",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     },
     {
-    "_id": "card-go-10",
-    "deckId": "deck-but1-go",
-    "front": "Comment parcourir un tableau, une slice ou une map à l'aide de l'instruction for ... range ?",
-    "back": "Syntaxe avec index/clé et valeur :\n\nfor i, val := range maSlice {\n    fmt.Println(i, val)\n}\n\nSi on n'a pas besoin de l'index, on utilise l'identifiant muet _ :\nfor _, val := range maSlice { ... }",
-    "dueDate": "2026-10-04T12:00:00.000Z",
-    "interval": 1,
-    "repetition": 0,
-    "efactor": 2.5
+      "_id": "card-go-10",
+      "deckId": "deck-but1-go",
+      "front": "Comment parcourir un tableau, une slice ou une map à l'aide de l'instruction for ... range ?",
+      "back": "Syntaxe avec index/clé et valeur :\n\nfor i, val := range maSlice {\n    fmt.Println(i, val)\n}\n\nSi on n'a pas besoin de l'index, on utilise l'identifiant muet _ :\nfor _, val := range maSlice { ... }",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
     }
-
   ]
 }
