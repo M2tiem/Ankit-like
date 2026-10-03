@@ -10,9 +10,13 @@ let isFlipped = false;
 
 // Éléments UI
 const viewDecks = document.getElementById('viewDecks');
+const viewManageDeck = document.getElementById('viewManageDeck');
 const viewStudy = document.getElementById('viewStudy');
 const viewComplete = document.getElementById('viewComplete');
+
 const decksGrid = document.getElementById('decksGrid');
+const manageDeckTitle = document.getElementById('manageDeckTitle');
+const manageCardsList = document.getElementById('manageCardsList');
 
 const flashcard = document.getElementById('flashcard');
 const cardContent = document.getElementById('cardContent');
@@ -21,17 +25,25 @@ const responseButtons = document.getElementById('responseButtons');
 const studyProgress = document.getElementById('studyProgress');
 
 const btnBackToDecks = document.getElementById('btnBackToDecks');
+const btnBackToDecksFromManage = document.getElementById('btnBackToDecksFromManage');
 const btnBackHome = document.getElementById('btnBackHome');
 const btnResetData = document.getElementById('btnResetData');
 const btnExportJSON = document.getElementById('btnExportJSON');
 
-// Formulaires
+// Formulaires & Modale
 const formAddDeck = document.getElementById('formAddDeck');
 const formAddCard = document.getElementById('formAddCard');
 const inputDeckName = document.getElementById('inputDeckName');
 const selectDeckForCard = document.getElementById('selectDeckForCard');
 const inputCardFront = document.getElementById('inputCardFront');
 const inputCardBack = document.getElementById('inputCardBack');
+
+const modalEdit = document.getElementById('modalEdit');
+const editCardId = document.getElementById('editCardId');
+const editCardFront = document.getElementById('editCardFront');
+const editCardBack = document.getElementById('editCardBack');
+const btnCancelEdit = document.getElementById('btnCancelEdit');
+const btnSaveEdit = document.getElementById('btnSaveEdit');
 
 // --- 1. INITIALISATION ---
 
@@ -69,14 +81,14 @@ function saveToStorage() {
   localStorage.setItem(STORAGE_KEY_CARDS, JSON.stringify(cards));
 }
 
-// --- 2. GESTION DU DÉROULÉ ET AFFICHAGE ---
+// --- 2. AFFICHAGE DES DECKS ---
 
 function renderDecks() {
   showView('decks');
   decksGrid.innerHTML = '';
 
   if (decks.length === 0) {
-    decksGrid.innerHTML = `<p class="text-slate-500 text-sm col-span-2">Aucun paquet disponible. Créez-en un ci-dessus !</p>`;
+    decksGrid.innerHTML = `<p class="text-slate-500 text-sm col-span-2">Aucun paquet disponible.</p>`;
     return;
   }
 
@@ -93,7 +105,10 @@ function renderDecks() {
         <h3 class="font-semibold text-lg text-slate-100 group-hover:text-indigo-400 transition">${deck.name}</h3>
         <p class="text-xs text-slate-400 mt-1">${deckCards.length} cartes au total</p>
       </div>
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2">
+        <button data-id="${deck._id}" class="btn-manage-deck p-2 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white text-xs rounded-lg transition" title="Gérer les cartes">
+          ⚙️
+        </button>
         <span class="px-2.5 py-1 text-xs font-semibold rounded-md ${dueCards.length > 0 ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : 'bg-slate-700/50 text-slate-400'}">
           ${dueCards.length} à réviser
         </span>
@@ -116,13 +131,79 @@ function updateDeckSelect() {
   });
 }
 
-// --- 3. CRÉATION DE PAQUETS / CARTES & EXPORT ---
+// --- 3. VUE DE GESTION / ÉDITION DES CARTES ---
+
+function openManageDeck(deckId) {
+  currentDeckId = deckId;
+  const deck = decks.find(d => d._id === deckId);
+  if (!deck) return;
+
+  manageDeckTitle.textContent = `Gestion : ${deck.name}`;
+  renderManageCards();
+  showView('manage');
+}
+
+function renderManageCards() {
+  manageCardsList.innerHTML = '';
+  const deckCards = cards.filter(c => c.deckId === currentDeckId);
+
+  if (deckCards.length === 0) {
+    manageCardsList.innerHTML = `<p class="text-slate-500 text-sm">Aucune carte dans ce paquet.</p>`;
+    return;
+  }
+
+  deckCards.forEach(c => {
+    const item = document.createElement('div');
+    item.className = 'bg-slate-800/80 border border-slate-700 p-4 rounded-xl flex items-center justify-between gap-4';
+    item.innerHTML = `
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium text-slate-100 truncate"><span class="text-slate-400">R:</span> ${c.front}</p>
+        <p class="text-xs text-slate-400 truncate mt-0.5"><span class="text-slate-500">V:</span> ${c.back}</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button data-id="${c._id}" class="btn-open-edit px-2.5 py-1.5 text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg transition">✏️ Modifier</button>
+        <button data-id="${c._id}" class="btn-delete-card px-2.5 py-1.5 text-xs bg-red-950/50 hover:bg-red-900/50 text-red-400 border border-red-800/40 rounded-lg transition">🗑️ Supprimer</button>
+      </div>
+    `;
+    manageCardsList.appendChild(item);
+  });
+}
+
+function openEditModal(cardId) {
+  const card = cards.find(c => c._id === cardId);
+  if (!card) return;
+
+  editCardId.value = card._id;
+  editCardFront.value = card.front;
+  editCardBack.value = card.back;
+  modalEdit.classList.remove('hidden');
+}
+
+function saveCardEdit() {
+  const id = editCardId.value;
+  const cardIndex = cards.findIndex(c => c._id === id);
+
+  if (cardIndex !== -1) {
+    cards[cardIndex].front = editCardFront.value.trim();
+    cards[cardIndex].back = editCardBack.value.trim();
+    saveToStorage();
+    renderManageCards();
+    modalEdit.classList.add('hidden');
+  }
+}
+
+function deleteCard(cardId) {
+  if (confirm("Supprimer cette carte définitivement ?")) {
+    cards = cards.filter(c => c._id !== cardId);
+    saveToStorage();
+    renderManageCards();
+  }
+}
+
+// --- 4. AJOUT & EXPORT ---
 
 function addDeck(name) {
-  const newDeck = {
-    _id: 'deck-' + Date.now(),
-    name: name.trim()
-  };
+  const newDeck = { _id: 'deck-' + Date.now(), name: name.trim() };
   decks.push(newDeck);
   saveToStorage();
   renderDecks();
@@ -160,7 +241,7 @@ function exportJSON() {
   URL.revokeObjectURL(url);
 }
 
-// --- 4. LOGIQUE DE RÉVISION (SM-2) ---
+// --- 5. LOGIQUE DE RÉVISION (SM-2) ---
 
 function startStudy(deckId) {
   currentDeckId = deckId;
@@ -248,18 +329,19 @@ function processAnswer(grade) {
 
 function showView(viewName) {
   viewDecks.classList.add('hidden');
+  viewManageDeck.classList.add('hidden');
   viewStudy.classList.add('hidden');
   viewComplete.classList.add('hidden');
 
   if (viewName === 'decks') viewDecks.classList.remove('hidden');
+  if (viewName === 'manage') viewManageDeck.classList.remove('hidden');
   if (viewName === 'study') viewStudy.classList.remove('hidden');
   if (viewName === 'complete') viewComplete.classList.remove('hidden');
 }
 
-// --- 5. ÉVÉNEMENTS ---
+// --- 6. ÉVÉNEMENTS ---
 
 function setupEventListeners() {
-  // Formulaire : Ajouter paquet
   formAddDeck.addEventListener('submit', (e) => {
     e.preventDefault();
     if (inputDeckName.value) {
@@ -268,7 +350,6 @@ function setupEventListeners() {
     }
   });
 
-  // Formulaire : Ajouter carte
   formAddCard.addEventListener('submit', (e) => {
     e.preventDefault();
     if (selectDeckForCard.value && inputCardFront.value && inputCardBack.value) {
@@ -278,14 +359,29 @@ function setupEventListeners() {
     }
   });
 
-  // Télécharger data.json
   btnExportJSON.addEventListener('click', exportJSON);
 
-  // Événements existants
+  // Clics sur la grille des decks (Réviser ou Gérer)
   decksGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn-start-study');
-    if (btn) startStudy(btn.dataset.id);
+    const btnStudy = e.target.closest('.btn-start-study');
+    if (btnStudy) startStudy(btnStudy.dataset.id);
+
+    const btnManage = e.target.closest('.btn-manage-deck');
+    if (btnManage) openManageDeck(btnManage.dataset.id);
   });
+
+  // Événements dans la vue de gestion des cartes
+  manageCardsList.addEventListener('click', (e) => {
+    const btnEdit = e.target.closest('.btn-open-edit');
+    if (btnEdit) openEditModal(btnEdit.dataset.id);
+
+    const btnDelete = e.target.closest('.btn-delete-card');
+    if (btnDelete) deleteCard(btnDelete.dataset.id);
+  });
+
+  // Actions de la modale d'édition
+  btnCancelEdit.addEventListener('click', () => modalEdit.classList.add('hidden'));
+  btnSaveEdit.addEventListener('click', saveCardEdit);
 
   flashcard.addEventListener('click', flipCard);
 
@@ -295,10 +391,11 @@ function setupEventListeners() {
   });
 
   btnBackToDecks.addEventListener('click', () => renderDecks());
+  btnBackToDecksFromManage.addEventListener('click', () => renderDecks());
   btnBackHome.addEventListener('click', () => renderDecks());
 
   btnResetData.addEventListener('click', async () => {
-    if (confirm("Réinitialiser les données au contenu d'origine du fichier data.json serveur ?")) {
+    if (confirm("Réinitialiser les données au contenu d'origine du fichier data.json ?")) {
       localStorage.clear();
       await resetDataFromJSON();
       renderDecks();
