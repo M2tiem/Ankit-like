@@ -11,7 +11,10 @@
     {
       "_id": "deck-1791055909672",
       "name": "Japonais"
-    }
+    },
+    {"_id": "deck-but1-go",
+"name": "BUT 1 - Programmation : Langage Go (S1)"
+  }
   ],
   "cards": [
     {
@@ -413,6 +416,108 @@
       "interval": 1,
       "repetition": 0,
       "efactor": 2.5
+    },
+
+    {
+    "_id": "card-go-1",
+    "deckId": "deck-but1-go",
+    "front": "Quelle est la différence entre une déclaration de variable classique et une déclaration courte avec := en Go ?",
+    "back": "• Déclaration classique : var x int ou var x int = 5 (peut spécifier explicitement le type, utile au niveau global d'un package).\n• Déclaration courte : x := 5 (infère automatiquement le type, utilisable uniquement dans le corps d'une fonction).",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-2",
+    "deckId": "deck-but1-go",
+    "front": "Quelle est la valeur par défaut (zero value) des types fondamentaux en Go (int, float64, bool, string, pointeur/slice) ?",
+    "back": "• int / float64 : 0 / 0.0\n• bool : false\n• string : "" (chaîne vide)\n• pointeur / slice / map : nil",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-3",
+    "deckId": "deck-but1-go",
+    "front": "Comment écrire une boucle for classique et l'équivalent d'une boucle while en Go ?",
+    "back": "• Boucle classique (3 parties) :\nfor i := 0; i < 10; i++ {\n    // code\n}\n\n• Equivalent du while (condition seule) :\nfor condition {\n    // code\n}\n\n• Boucle infinie :\nfor {\n    // code\n}",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-4",
+    "deckId": "deck-but1-go",
+    "front": "Quelle est la syntaxe d'une fonction qui retourne plusieurs valeurs en Go ?",
+    "back": "func divMod(a int, b int) (int, int) {\n    return a / b, a % b\n}\n\nAppel :\nq, r := divMod(10, 3)",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-5",
+    "deckId": "deck-but1-go",
+    "front": "Quelle est la différence fondamentale entre un Tableau (Array) et une Slice en Go ?",
+    "back": "• Tableau (Array) : Taille FIXE déterminée à la déclaration.\nEx: var t [5]int (le type fait partie de la taille).\n\n• Slice : Vue dynamique sur un tableau sous-jacent, taille VARIABLE.\nEx: var s []int ou s := make([]int, 5).",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-6",
+    "deckId": "deck-but1-go",
+    "front": "Comment ajouter un élément à une slice et comment fonctionne append ?",
+    "back": "On utilise la fonction intégrée append :\n\ns := []int{1, 2}\ns = append(s, 3)\n\nNote : append peut réallouer un tableau sous-jacent plus grand si la capacité maximale est atteinte, d'où la réaffectation à s.",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-7",
+    "deckId": "deck-but1-go",
+    "front": "Que font les opérateurs & et * lorsqu'ils sont utilisés avec des pointeurs en Go ?",
+    "back": "• & (Adresse de) : Récupère l'adresse mémoire d'une variable.\nEx: p := &x (p contient l'adresse de x).\n\n• * (Déréférencement) : Accède à la valeur pointée par une adresse.\nEx: *p = 10 (modifie la valeur à l'adresse contenue dans p).",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-8",
+    "deckId": "deck-but1-go",
+    "front": "Pourquoi utilise-t-on le passage par pointeur (passage par adresse) lors de l'appel d'une fonction ?",
+    "back": "Par défaut, Go passe TOUT par valeur (copie des arguments).\nOn utilise un pointeur pour :\n1. Permettre à la fonction de modifier directement la variable d'origine.\n2. Éviter de copier de grandes structures en mémoire.",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-9",
+    "deckId": "deck-but1-go",
+    "front": "Comment déclarer et instancier une structure (struct) en Go ?",
+    "back": "Déclaration :\ntype Etudiant struct {\n    Nom string\n    Note float64\n}\n\nInstanciation :\ne1 := Etudiant{Nom: "Alice", Note: 15.5}",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
+    },
+    {
+    "_id": "card-go-10",
+    "deckId": "deck-but1-go",
+    "front": "Comment parcourir un tableau, une slice ou une map à l'aide de l'instruction for ... range ?",
+    "back": "Syntaxe avec index/clé et valeur :\n\nfor i, val := range maSlice {\n    fmt.Println(i, val)\n}\n\nSi on n'a pas besoin de l'index, on utilise l'identifiant muet _ :\nfor _, val := range maSlice { ... }",
+    "dueDate": "2026-10-04T12:00:00.000Z",
+    "interval": 1,
+    "repetition": 0,
+    "efactor": 2.5
     }
+
   ]
 }
