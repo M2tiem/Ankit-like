@@ -32,6 +32,21 @@
     {
       "_id": "deck-css-inter",
       "name": "Développement Web : CSS3 Intermédiaire"
+    },{
+      "_id": "deck-but-fonctions",
+      "name": "BUT - Mathématiques : Généralités sur les fonctions"
+    },
+    {
+      "_id": "deck-but-derivation",
+      "name": "BUT - Mathématiques : Dérivation"
+    },
+    {
+      "_id": "deck-but-integration",
+      "name": "BUT - Mathématiques : Intégration"
+    },
+    {
+      "_id": "deck-but-suites",
+      "name": "BUT - Mathématiques : Suites numériques"
     }
   ],
   "cards": [
@@ -811,6 +826,406 @@
       "front": "Comment créer une animation CSS basique avec @keyframes ?",
       "back": "1. Définition des étapes :\n@keyframes glissement {\n    from { transform: translateX(0); }\n    to { transform: translateX(100px); }\n}\n\n2. Application sur l'élément :\n.boite {\n    animation: glissement 2s ease-in-out infinite alternate;\n}",
       "dueDate": "2026-10-03T11:42:00.813Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    }
+    {
+      "_id": "card-fct-101",
+      "deckId": "deck-but-fonctions",
+      "front": "Comment prouver qu'une fonction f est paire ou impaire (définition et symétrie graphique) ?",
+      "back": "Pour tout x ∈ D_f avec -x ∈ D_f :\n• Paire : f(-x) = f(x) → Symétrie axiale par rapport à l'axe des ordonnées (Oy).\n• Impaire : f(-x) = -f(x) → Symétrie centrale par rapport à l'origine O.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-102",
+      "deckId": "deck-but-fonctions",
+      "front": "Quelle est la définition formelle d'une fonction T-périodique ?",
+      "back": "Une fonction f est T-périodique (avec T > 0) si pour tout x ∈ D_f :\n1. (x + T) ∈ D_f\n2. f(x + T) = f(x)\n\nLe plus petit T > 0 vérifiant cette propriété est la période fondamentale.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-103",
+      "deckId": "deck-but-fonctions",
+      "front": "Quelles sont les formules trigonométriques pour cos(2x), sin(2x) et tan(2x) ?",
+      "back": "• cos(2x) = cos²(x) - sin²(x) = 2cos²(x) - 1 = 1 - 2sin²(x)\n• sin(2x) = 2 sin(x) cos(x)\n• tan(2x) = (2 tan(x)) / (1 - tan²(x))",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-104",
+      "deckId": "deck-but-fonctions",
+      "front": "Quelles sont les formules de linéarisation trigonométrique de cos²(x) et sin²(x) ?",
+      "back": "• cos²(x) = (1 + cos(2x)) / 2\n• sin²(x) = (1 - cos(2x)) / 2",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-105",
+      "deckId": "deck-but-fonctions",
+      "front": "Comment sont définies les fonctions réciproques Arcsin, Arccos et Arctan (domaines et ensembles d'arrivée) ?",
+      "back": "• Arcsin : [-1, 1] → [-π/2, π/2]\n• Arccos : [-1, 1] → [0, π]\n• Arctan : ℝ → ]-π/2, π/2[",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-106",
+      "deckId": "deck-but-fonctions",
+      "front": "Quelle est l'identité remarquable liant Arcsin(x) et Arccos(x) pour tout x ∈ [-1, 1] ?",
+      "back": "Arcsin(x) + Arccos(x) = π / 2",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-107",
+      "deckId": "deck-but-fonctions",
+      "front": "Enoncé du Théorème des Valeurs Intermédiaires (TVI) et du théorème de la bijection.",
+      "back": "• TVI : Si f est continue sur [a, b], alors pour tout k entre f(a) et f(b), il existe au moins c ∈ [a, b] tel que f(c) = k.\n• Bijection : Si f est continue et strictement monotone sur [a, b], alors f réalise une bijection de [a, b] vers f([a, b]) et l'équation f(x) = k admet une unique solution.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-108",
+      "deckId": "deck-but-fonctions",
+      "front": "Comment déterminer les asymptotes horizontales, verticales et obliques d'une fonction ?",
+      "back": "• Verticale en x = a : si lim_{x → a} f(x) = ±∞.\n• Horizontale en ±∞ : si lim_{x → ±∞} f(x) = L (droite y = L).\n• Oblique (y = ax + b) en ±∞ : si lim_{x → ±∞} [f(x) - (ax + b)] = 0.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-109",
+      "deckId": "deck-but-fonctions",
+      "front": "Quelles sont les propriétés algébriques clés de la fonction logarithme népérien (ln) et de l'exponentielle (exp) ?",
+      "back": "• ln(a × b) = ln(a) + ln(b) et ln(a / b) = ln(a) - ln(b)\n• ln(a^k) = k × ln(a)\n• e^{a + b} = e^a × e^b et e^{a - b} = e^a / e^b\n• e^{ln(x)} = x (pour x > 0) et ln(e^x) = x (pour tout x ∈ ℝ)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-fct-110",
+      "deckId": "deck-but-fonctions",
+      "front": "Quelles sont les limites par croissances comparées en +∞ et 0 entre x^α, e^x et ln(x) (avec α > 0) ?",
+      "back": "En +∞ :\n• lim (e^x / x^α) = +∞\n• lim (ln(x) / x^α) = 0\n\nEn 0⁺ :\n• lim (x^α × ln(x)) = 0",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-101",
+      "deckId": "deck-but-derivation",
+      "front": "Définition du nombre dérivé f'(x₀) sous forme de limite du taux d'accroissement.",
+      "back": "f'(x₀) = lim_{h → 0} (f(x₀ + h) - f(x₀)) / h\n\nou équivalemment :\nf'(x₀) = lim_{x → x₀} (f(x) - f(x₀)) / (x - x₀)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-102",
+      "deckId": "deck-but-derivation",
+      "front": "Quelle est l'équation de la tangente à la courbe de f au point d'abscisse x₀ ?",
+      "back": "y = f'(x₀)(x - x₀) + f(x₀)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-103",
+      "deckId": "deck-but-derivation",
+      "front": "Quelles sont les dérivées des fonctions de base : x^n, 1/x, √x, e^x, ln(x) ?",
+      "back": "• (x^n)' = n x^{n-1}\n• (1/x)' = -1 / x²\n• (√x)' = 1 / (2√x)\n• (e^x)' = e^x\n• (ln(x))' = 1 / x",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-104",
+      "deckId": "deck-but-derivation",
+      "front": "Quelles sont les dérivées des fonctions trigonométriques cos(x), sin(x), tan(x) ?",
+      "back": "• (cos x)' = -sin x\n• (sin x)' = cos x\n• (tan x)' = 1 + tan² x = 1 / cos² x",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-105",
+      "deckId": "deck-but-derivation",
+      "front": "Quelles sont les dérivées des fonctions trigonométriques réciproques Arcsin(x), Arccos(x) et Arctan(x) ?",
+      "back": "• (Arcsin x)' = 1 / √(1 - x²)\n• (Arccos x)' = -1 / √(1 - x²)\n• (Arctan x)' = 1 / (1 + x²)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-106",
+      "deckId": "deck-but-derivation",
+      "front": "Quelles sont les règles de dérivation pour le produit (u × v) et le quotient (u / v) ?",
+      "back": "• (u × v)' = u'v + uv'\n• (u / v)' = (u'v - uv') / v²",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-107",
+      "deckId": "deck-but-derivation",
+      "front": "Énoncé du Théorème de Rolle.",
+      "back": "Si f est continue sur [a, b], dérivable sur ]a, b[, et f(a) = f(b),\nalors il existe au moins c ∈ ]a, b[ tel que f'(c) = 0.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-108",
+      "deckId": "deck-but-derivation",
+      "front": "Énoncé du Théorème des Accroissements Finis (TAF).",
+      "back": "Si f est continue sur [a, b] et dérivable sur ]a, b[,\nalors il existe au moins c ∈ ]a, b[ tel que :\nf'(c) = (f(b) - f(a)) / (b - a)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-109",
+      "deckId": "deck-but-derivation",
+      "front": "Comment utiliser la Règle de L'Hospital pour lever les formes indéterminées 0/0 ou ∞/∞ ?",
+      "back": "Si lim_{x → a} f(x) = lim_{x → a} g(x) = 0 (ou ±∞), et si g'(x) ≠ 0 :\nlim_{x → a} (f(x) / g(x)) = lim_{x → a} (f'(x) / g'(x))\n(sous réserve de l'existence de la seconde limite).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-deriv-110",
+      "deckId": "deck-but-derivation",
+      "front": "Quelle est la condition dérivée seconde pour caractériser la convexité, la concavité et un point d'inflexion ?",
+      "back": "• f''(x) ≥ 0 → f est convexe (courbe au-dessus des tangentes).\n• f''(x) ≤ 0 → f est concave (courbe en dessous des tangentes).\n• f''(x) s'annule en changeant de signe → Point d'inflexion.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-101",
+      "deckId": "deck-but-integration",
+      "front": "Quelle est la relation fondamentale entre une intégrale définie ∫_a^b f(x)dx et une primitive F(x) de f ?",
+      "back": "Si F est une primitive de f continue sur [a, b] :\n∫_a^b f(x) dx = [F(x)]_a^b = F(b) - F(a)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-102",
+      "deckId": "deck-but-integration",
+      "front": "Quelles sont les primitives usuelles des formes u'u^n, u'/u et u'e^u ?",
+      "back": "• ∫ u'(x) (u(x))^n dx = (u(x))^{n+1} / (n + 1) + C  (pour n ≠ -1)\n• ∫ u'(x) / u(x) dx = ln|u(x)| + C\n• ∫ u'(x) e^{u(x)} dx = e^{u(x)} + C",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-103",
+      "deckId": "deck-but-integration",
+      "front": "Quelles sont les primitives de 1 / (1 + x²) et 1 / √(1 - x²) ?",
+      "back": "• ∫ 1 / (1 + x²) dx = Arctan(x) + C\n• ∫ 1 / √(1 - x²) dx = Arcsin(x) + C",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-104",
+      "deckId": "deck-but-integration",
+      "front": "Formule de la valeur moyenne d'une fonction f continue sur [a, b].",
+      "back": "µ = (1 / (b - a)) * ∫_a^b f(x) dx",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-105",
+      "deckId": "deck-but-integration",
+      "front": "Règle de Chasles et propriétés de linéarité de l'intégrale.",
+      "back": "• Chasles : ∫_a^c f(x)dx + ∫_c^b f(x)dx = ∫_a^b f(x)dx\n• Linéarité : ∫_a^b (α f(x) + β g(x)) dx = α ∫_a^b f(x)dx + β ∫_a^b g(x)dx",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-106",
+      "deckId": "deck-but-integration",
+      "front": "Que vaut l'intégrale ∫_{-a}^a f(x) dx si f est paire ? Et si f est impaire ?",
+      "back": "• Si f est paire : ∫_{-a}^a f(x) dx = 2 × ∫_0^a f(x) dx\n• Si f est impaire : ∫_{-a}^a f(x) dx = 0",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-107",
+      "deckId": "deck-but-integration",
+      "front": "Comment calculer la primitive d'une fraction rationnelle simple du type 1 / (x - a) et 1 / (x - a)^n ?",
+      "back": "• ∫ 1 / (x - a) dx = ln|x - a| + C\n• ∫ 1 / (x - a)^n dx = -1 / ((n - 1)(x - a)^{n-1}) + C  (pour n > 1)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-108",
+      "deckId": "deck-but-integration",
+      "front": "Qu'est-ce qu'une intégrale généralisée (impropre) et quand dit-on qu'elle converge ?",
+      "back": "C'est une intégrale sur un intervalle non borné (ex: [a, +∞[) ou dont la fonction est non bornée en un point.\nExemple : ∫_a^{+∞} f(x) dx = lim_{t → +∞} ∫_a^t f(x) dx\nElle converge si cette limite existe et est FINIE.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-109",
+      "deckId": "deck-but-integration",
+      "front": "Règle de convergence des intégrales de Riemann en +∞ : ∫_1^{+∞} (1 / x^α) dx.",
+      "back": "L'intégrale ∫_1^{+∞} (1 / x^α) dx converge si et seulement si :\nα > 1",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-integ-110",
+      "deckId": "deck-but-integration",
+      "front": "Règle de convergence des intégrales de Riemann en 0 : ∫_0^1 (1 / x^α) dx.",
+      "back": "L'intégrale ∫_0^1 (1 / x^α) dx converge si et seulement si :\nα < 1",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-101",
+      "deckId": "deck-but-suites",
+      "front": "Qu'est-ce qu'une suite majorée, minorée et bornée ?",
+      "back": "• Majorée : ∃ M ∈ ℝ tel que ∀n, u_n ≤ M.\n• Minorée : ∃ m ∈ ℝ tel que ∀n, u_n ≥ m.\n• Bornée : La suite est à la fois majorée et minorée (∃ M > 0, ∀n, |u_n| ≤ M).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-102",
+      "deckId": "deck-but-suites",
+      "front": "Quelles sont les 3 méthodes classiques pour étudier la monotonie d'une suite (u_n) ?",
+      "back": "1. Étudier le signe de la différence : u_{n+1} - u_n (≥ 0 → croissante).\n2. Comparer le rapport u_{n+1} / u_n à 1 (si tous les termes u_n > 0).\n3. Si u_n = f(n), étudier les variations de la fonction f sur [0, +∞[.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-103",
+      "deckId": "deck-but-suites",
+      "front": "Énoncé du Théorème de la Limite Monotone pour les suites.",
+      "back": "• Toute suite CROISSANTE et MAJORÉE est convergente.\n• Toute suite DÉCROISSANTE et MINORÉE est convergente.\n• Une suite croissante non majorée tend vers +∞.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-104",
+      "deckId": "deck-but-suites",
+      "front": "Énoncé du Théorème des Gendarmes pour la limite de suites.",
+      "back": "Si pour n assez grand, v_n ≤ u_n ≤ w_n,\net si lim v_n = lim w_n = L,\nalors lim u_n = L.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-105",
+      "deckId": "deck-but-suites",
+      "front": "Quelle est la limite de la suite géométrique (qⁿ) selon les valeurs du réel q ?",
+      "back": "• Si q > 1 : lim qⁿ = +∞\n• Si q = 1 : lim qⁿ = 1\n• Si -1 < q < 1 : lim qⁿ = 0\n• Si q ≤ -1 : Pas de limite (divergente par oscillation)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-106",
+      "deckId": "deck-but-suites",
+      "front": "Définition de deux suites adjacentes et conséquence sur leur limite.",
+      "back": "Deux suites (u_n) et (v_n) sont adjacentes si :\n1. L'une est croissante, l'autre est décroissante.\n2. lim_{n → +∞} (v_n - u_n) = 0.\n\nConséquence : Elles convergent toutes les deux vers la MÊME limite L.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-107",
+      "deckId": "deck-but-suites",
+      "front": "Pour une suite récurrente u_{n+1} = f(u_n), si (u_n) converge vers L et f est continue, quelle équation vérifie L ?",
+      "back": "L est une solution de l'équation du point fixe :\nf(L) = L",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-108",
+      "deckId": "deck-but-suites",
+      "front": "Formules de la somme des entiers k, des carrés k² et des cubes k³ de 1 à n.",
+      "back": "• Σ_{k=1}^n k = n(n + 1) / 2\n• Σ_{k=1}^n k² = n(n + 1)(2n + 1) / 6\n• Σ_{k=1}^n k³ = [n(n + 1) / 2]²",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-109",
+      "deckId": "deck-but-suites",
+      "front": "Comment caractériser une suite récurrente linéaire d'ordre 2 à coefficients constants u_{n+2} + a u_{n+1} + b u_n = 0 ?",
+      "back": "On résout l'équation caractéristique r² + ar + b = 0 (Δ = a² - 4b) :\n• Δ > 0 : u_n = α (r_1)ⁿ + β (r_2)ⁿ\n• Δ = 0 : u_n = (α + β n) (r_0)ⁿ\n• Δ < 0 : u_n = ρⁿ [α cos(nθ) + β sin(nθ)] avec r = ρ e^{iθ}",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-suites-110",
+      "deckId": "deck-but-suites",
+      "front": "Qu'est-ce que la suite de Fibonacci et quelle est sa formule de récurrence ?",
+      "back": "C'est la suite définie par :\nF_0 = 0, F_1 = 1 et F_{n+2} = F_{n+1} + F_n\n\nSa limite de rapport F_{n+1} / F_n tend vers le nombre d'or φ = (1 + √5) / 2.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
       "interval": 1,
       "repetition": 0,
       "efactor": 2.5
