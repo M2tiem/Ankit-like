@@ -829,7 +829,7 @@
       "interval": 1,
       "repetition": 0,
       "efactor": 2.5
-    }
+    },
     {
       "_id": "card-fct-101",
       "deckId": "deck-but-fonctions",
