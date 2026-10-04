@@ -21,9 +21,10 @@
       "name": "logarithme Neperien"
     },
     {
-      "_id": "deck-1791103865185",
+      "_id": "deck-math-identites",
       "name": "Identités remarquables"
     },
+    
     {
       "_id": "deck-html-inter",
       "name": "Développement Web : HTML5 Intermédiaire"
@@ -565,8 +566,88 @@
       "efactor": 2.5
     },
     {
+      "_id": "card-ir-1",
+      "deckId": "deck-math-identites",
+      "front": "Quelles sont les 3 identités remarquables fondamentales de degré 2 (développement) ?",
+      "back": "• (a + b)² = a² + 2ab + b²\n• (a - b)² = a² - 2ab + b²\n• (a - b)(a + b) = a² - b²",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ir-2",
+      "deckId": "deck-math-identites",
+      "front": "Comment s'écrivent les développements de (a + b)³ et (a - b)³ ?",
+      "back": "• (a + b)³ = a³ + 3a²b + 3ab² + b³\n• (a - b)³ = a³ - 3a²b + 3ab² - b³",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ir-3",
+      "deckId": "deck-math-identites",
+      "front": "Comment factoriser a³ - b³ et a³ + b³ ?",
+      "back": "• a³ - b³ = (a - b)(a² + ab + b²)\n• a³ + b³ = (a + b)(a² - ab + b²)\n\nMnémonique : le premier facteur garde le signe d'origine, le terme central du second facteur prend le signe opposé.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ir-4",
+      "deckId": "deck-math-identites",
+      "front": "Quel est le développement du carré d'un trinôme (a + b + c)² ?",
+      "back": "(a + b + c)² = a² + b² + c² + 2ab + 2bc + 2ca\n\n(La somme des carrés de chaque terme + le double produit de toutes les paires possibles).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ir-5",
+      "deckId": "deck-math-identites",
+      "front": "Comment transformer x² + bx sous forme canonique (technique de complétion du carré) ?",
+      "back": "x² + bx = (x + b/2)² - (b/2)²\n\nExemple :\nx² + 6x = (x + 3)² - 9",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ir-6",
+      "deckId": "deck-math-identites",
+      "front": "Quelle est la formule générale de factorisation de aⁿ - bⁿ pour n ≥ 1 ?",
+      "back": "aⁿ - bⁿ = (a - b)(aⁿ⁻¹ + aⁿ⁻²b + aⁿ⁻³b² + ... + abⁿ⁻² + bⁿ⁻¹)\n\nExemple pour n = 4 :\na⁴ - b⁴ = (a - b)(a³ + a²b + ab² + b³)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ir-7",
+      "deckId": "deck-math-identites",
+      "front": "Sous quelle condition sur n peut-on factoriser aⁿ + bⁿ par (a + b) ?",
+      "back": "Uniquement lorsque n est IMPAIR.\n\naⁿ + bⁿ = (a + b)(aⁿ⁻¹ - aⁿ⁻²b + aⁿ⁻³b² - ... + bⁿ⁻¹)\n\nExemple pour n = 3 :\na³ + b³ = (a + b)(a² - ab + b²)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-ir-8",
+      "deckId": "deck-math-identites",
+      "front": "Comment factoriser x⁴ + 4 (identité de Sophie Germain) ?",
+      "back": "On ajoute et on soustrait 4x² pour faire apparaître une différence de deux carrés :\n\nx⁴ + 4 = (x⁴ + 4x² + 4) - 4x²\n       = (x² + 2)² - (2x)²\n       = (x² + 2 - 2x)(x² + 2 + 2x)",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
       "_id": "card-1791103895682",
-      "deckId": "deck-1791103865185",
+      "deckId": "deck-math-identites",
       "front": "a^2 - 2ab + b^2 = ?\n\n\n\n=> si (a -b )^2 = 0 alors ...\n\n\n\n(a+b) (a-b) = ?\n\n\n\n(X-1)^2 = 0 a pour unique solution...",
       "back": "a^2 - 2ab + b^2 = ( a -b )^2 \n\n\n\n\nalors  a - b = 0\n\n\n(a+b) (a-b) = a^2 - b^2\n\n\n\nX= 1",
       "dueDate": "2026-10-04T08:51:35.682Z",
@@ -586,7 +667,7 @@
     },
     {
       "_id": "card-1791104014882",
-      "deckId": "deck-1791103865185",
+      "deckId": "deck-math-identites",
       "front": "X^2 = x \n\n\n\nun produit de facteur est nul si et seulement si au moins l'un des facteurs est nul",
       "back": "X^2-x = 0 \n\nx(x-1) = 0 \n\nsoit X = 0 ou X -1 = 0 \n\n\n\nS ={0;1}",
       "dueDate": "2026-10-04T08:53:34.882Z",
