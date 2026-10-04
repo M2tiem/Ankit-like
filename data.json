@@ -15,6 +15,22 @@
     {
       "_id": "deck-but1-go",
       "name": "BUT 1 - Programmation : Langage Go (S1)"
+    },
+    {
+      "_id": "deck-1791103730052",
+      "name": "logarithme Neperien"
+    },
+    {
+      "_id": "deck-1791103865185",
+      "name": "Identités remarquables"
+    },
+    {
+      "_id": "deck-html-inter",
+      "name": "Développement Web : HTML5 Intermédiaire"
+    },
+    {
+      "_id": "deck-css-inter",
+      "name": "Développement Web : CSS3 Intermédiaire"
     }
   ],
   "cards": [
@@ -43,9 +59,9 @@
       "deckId": "deck-but1-ensembles",
       "front": "Quelle est la structure de rédaction pour prouver une inclusion A ⊆ B ?",
       "back": "Méthode de l'élément quelconque :\n1. Soit x ∈ A.\n2. [Raisonnement utilisant les définitions et hypothèses]\n3. Montrer que x ∈ B.\n4. Conclure : A ⊆ B.",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T23:24:44.350Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -53,9 +69,9 @@
       "deckId": "deck-but1-ensembles",
       "front": "Quelles sont les deux méthodes pour démontrer que deux ensembles A et B sont égaux (A = B) ?",
       "back": "1. Double inclusion (privilégiée) :\nProuver que A ⊆ B, puis prouver que B ⊆ A.\n\n2. Par équivalences successives (⇔) :\nPartir de x ∈ A et enchaîner les équivalences strictes jusqu'à x ∈ B.",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T23:25:25.794Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -63,89 +79,89 @@
       "deckId": "deck-but1-ensembles",
       "front": "Quelle est la différence fondamentale entre le symbole ∈ et le symbole ⊆ ?",
       "back": "• ∈ (Appartenance) : relie un ÉLÉMENT à un ensemble (ex: 2 ∈ ℕ).\n• ⊆ (Inclusion) : relie DEUX ENSEMBLES (ex: {2} ⊆ ℕ).\n\nRègle d'or : x ∈ A ⇔ {x} ⊆ A.",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T23:25:59.917Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-ens-6",
       "deckId": "deck-but1-ensembles",
       "front": "Quelles sont les deux lois de De Morgan pour les ensembles ?",
       "back": "Le complémentaire inverse l'opération (∩ devient ∪ et inversement) :\n\n1. Not(A ∩ B) = Ā ∪ B̄\n2. Not(A ∪ B) = Ā ∩ B̄",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T23:26:23.695Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-ens-7",
       "deckId": "deck-but1-ensembles",
       "front": "Comment se traduit l'appartenance à un produit cartésien (x, y) ∈ A × B ?",
       "back": "(x, y) ∈ A × B ⇔ x ∈ A ET y ∈ B\n\n(Un élément d'un produit cartésien est un couple).",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T23:27:04.624Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-ens-8",
       "deckId": "deck-but1-ensembles",
       "front": "Qu'est-ce que la différence symétrique A Δ B (définition et condition d'appartenance) ?",
       "back": "C'est l'ensemble des éléments qui sont dans A ou dans B, mais PAS dans les deux (OU exclusif).\n\n• Formule : A Δ B = (A \\ B) ∪ (B \\ A) = (A ∪ B) \\ (A ∩ B)\n• Appartenance : x ∈ A Δ B ⇔ (x ∈ A ET x ∉ B) OU (x ∈ B ET x ∉ A)",
-      "dueDate": "2026-10-03T00:00:00.000Z",
+      "dueDate": "2026-10-04T23:28:03.800Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791031531655",
       "deckId": "deck-but1-ensembles",
       "front": "Distribution du quantificateur \n\n\n\npour tout X ( p(x) et q(x)) <=> \n\n\n\nIl y a X (p(x) ou q(x)) <=>\n\n\non ne peut pas distribuer \n\n\n\n• pour tout sur le ou \n\n• il y a sur le et",
       "back": "( pour tout x, P(X)) et (pour tout x, q(x)) \n(il y a x,p(x)) ou ( il y a x, q(x))",
-      "dueDate": "2026-10-03T12:45:31.655Z",
+      "dueDate": "2026-10-04T23:29:17.714Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791031886275",
       "deckId": "deck-but1-ensembles",
       "front": "Définition prédicat",
       "back": "Un prédicat est un énoncé sans valeur de vérité dans lequel intervient au moins une variable et qui devient une proposition par ajout de quantificateurs \n\n\n\n\n\nune variable introduite est dite liée",
-      "dueDate": "2026-10-03T12:51:26.275Z",
+      "dueDate": "2026-10-04T23:29:33.208Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791031968000",
       "deckId": "deck-but1-ensembles",
       "front": "D'après la loi de l'absorption ((p ou q) et q )",
       "back": "devient q",
-      "dueDate": "2026-10-03T12:52:48.001Z",
+      "dueDate": "2026-10-04T23:29:57.320Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791032004452",
       "deckId": "deck-but1-ensembles",
       "front": "Clause unitaire \n\n\n\nlittéral pur",
       "back": "Une seule variable dans la clause ( située entre plusieurs et) \n\n\n\nliteral pur : toujours sous sa forme ou sous sa forme négative dans l'ensemble de la proposition",
-      "dueDate": "2026-10-03T12:53:24.452Z",
+      "dueDate": "2026-10-04T23:30:08.221Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791032081789",
       "deckId": "deck-but1-ensembles",
       "front": "Définir la commutativité",
       "back": "On dit qu'un opérateur est commutatif lorsque l'ordre des opérateurs n'est pas important \n\n\n\nquelque soit à et B on a\n\n\n\na* B = B  * a",
-      "dueDate": "2026-10-03T12:54:41.789Z",
+      "dueDate": "2026-10-04T23:31:10.761Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -153,119 +169,119 @@
       "deckId": "deck-but1-ensembles",
       "front": "Définir la distributivité",
       "back": "On dit qu'un opérateur est distributif sur tel que \n\nA * ( b•  c) =( a *b) • ( a* c)",
-      "dueDate": "2026-10-03T12:55:40.781Z",
+      "dueDate": "2026-10-04T23:31:43.309Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791032180231",
       "deckId": "deck-but1-ensembles",
       "front": "Loi de Morgan \n\n\nsoit p et q deux variables propositionnelles alors :",
       "back": "non( p et q) <=> non p ou non q\n\n\n\nnon (p ou q) <=> non p et non q",
-      "dueDate": "2026-10-03T12:56:20.231Z",
+      "dueDate": "2026-10-04T23:32:07.457Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791032253336",
       "deckId": "deck-but1-ensembles",
       "front": "Définir associativité",
       "back": "On dit qu'un opérateur est associatif lorsque l'ordre des opérations n'a pas d'importance \n\n\n\nsoit a,b et c on a \n\n\n\n(a b )  c = c ( a  b)",
-      "dueDate": "2026-10-03T12:57:33.336Z",
+      "dueDate": "2026-10-04T23:32:28.771Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791032304240",
       "deckId": "deck-but1-ensembles",
       "front": "Soit p et q deux variables propositionnelles alors \n\n\n\n(P <=> Q)  <=> ? \n\n\n( deux réponses )",
       "back": "((P=> Q) et ( Q=> P)) \n\n\n\n((P et Q)) ou (non P et non Q))",
-      "dueDate": "2026-10-03T12:58:24.240Z",
+      "dueDate": "2026-10-04T23:32:52.288Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791047058440",
       "deckId": "deck-but1-ensembles",
       "front": "Définition \nensemble \nObjet d’ensemble",
       "back": "C’est une collection d’objets sans doubles et sans ordre \nLes objets d’un ensemble sont appelés ses éléments",
-      "dueDate": "2026-10-03T17:04:18.440Z",
+      "dueDate": "2026-10-04T23:33:11.341Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791047319632",
       "deckId": "deck-but1-ensembles",
       "front": "Un ensemble peut être défini en :",
       "back": "- extension : on liste tous les éléments de l’ensemble \n\n- pseudo-extension: on liste le début d’une suite logique d’éléments en finissant par … ( à éviter ) \n- en compréhension { x€ E | p(x) } où P(x) est un prédicat. \nOn définit les éléments d’un ensemble comme ceux appartenant à un sur ensemble E et vérifiant une certaine propriété ( définie par P)",
-      "dueDate": "2026-10-03T17:08:39.632Z",
+      "dueDate": "2026-10-04T23:33:24.804Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791047503257",
       "deckId": "deck-but1-ensembles",
       "front": "Les ensembles classiques :\n\nN:\nZ: \nD:\nQ:\nR:",
       "back": "N: ensemble des entiers naturels positifs \nZ: ensemble des entiers relatifs \nD: ensemble des nombres décimaux \nQ:ensemble des nombres rationnels ( de la forme a/b avec a et b entiers )\n\nR: Ensemble des nombres réels",
-      "dueDate": "2026-10-03T17:11:43.257Z",
+      "dueDate": "2026-10-04T23:33:57.973Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791056667886",
       "deckId": "deck-but1-ensembles",
       "front": "Sur un ensemble fini E avec A et B comme sous ensemble on a \nCard ( A ∪ B ) =\nEt si disjoint \nCard ( A ∪ B ) =\nCard (Ā) =\n\nSi A_1, A_2 … forment une partition de E alors =",
       "back": "Card ( A ∪ B ) = card (A) + Card(B) - (card(a ∩ b) \nSi disjoint =  card (A) + Card(B)\nCard (Ā) = Card(E) - card(a) \n\nSi A_1, A_2 … forment une partition de E alors = card(A_1) + Card(A_2) + Card(A_p) = Card(E)",
-      "dueDate": "2026-10-03T19:44:27.886Z",
+      "dueDate": "2026-10-05T08:37:36.193Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791056985682",
       "deckId": "deck-but1-ensembles",
       "front": "A ∪ A = \nA n A =\nA\\a =\nA Δ A =\nA ∪ Ω =",
       "back": "A ∪ A = A \nA n A = ∅\nA\\a = ∅\nA Δ A = ∅\nA ∪ Ω = Ω",
-      "dueDate": "2026-10-03T19:49:45.682Z",
+      "dueDate": "2026-10-05T11:42:00.813Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 1.7000000000000002
     },
     {
       "_id": "card-1791057778106",
       "deckId": "deck-but1-ensembles",
       "front": "A n Ω =\nA u ∅ =\nA n ∅ =\nSi b ⊂ a: a u b =\nSi b ⊂ a: a n b =",
       "back": "A n Ω = A\nA u ∅ = A\nA n ∅ = ∅\nSi b ⊂ a: a u b = A\nSi b ⊂ a: a n b = B",
-      "dueDate": "2026-10-03T20:02:58.106Z",
+      "dueDate": "2026-10-05T08:39:00.347Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791058517155",
       "deckId": "deck-but1-ensembles",
       "front": "Si E est de cardinal n alors P(E) =",
       "back": "P(E) = 2^n",
-      "dueDate": "2026-10-03T20:15:17.155Z",
+      "dueDate": "2026-10-05T08:41:42.037Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791058726914",
       "deckId": "deck-but1-ensembles",
       "front": "Le produit cartésien de deux ensemble E et F est l’ensemble defini par:",
       "back": "E * F = { (x,y) | x € e et y € f}",
-      "dueDate": "2026-10-03T20:18:46.914Z",
+      "dueDate": "2026-10-05T08:42:27.607Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -273,19 +289,19 @@
       "deckId": "deck-but1-ensembles",
       "front": "Un element (x,y) dun ensemble issue du produit cartésien de deux ensembles est appelé couple et vérifie",
       "back": "(x,y) = (x’,y’) <=> x = x’ et y = y’",
-      "dueDate": "2026-10-03T20:20:55.478Z",
+      "dueDate": "2026-10-05T08:42:52.642Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791059171927",
       "deckId": "deck-but1-ensembles",
       "front": "Soient E et F deux ensemble ,\n\nOn dit que E est inclus dans F si….\n\nOn notera alors E ⊂ F, et on dira que E est …",
       "back": "tous les éléments de E appartiennent à F.\n\n\nUne partie ou un sous ensemble de F",
-      "dueDate": "2026-10-03T20:26:11.927Z",
+      "dueDate": "2026-10-05T08:45:14.343Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -293,9 +309,9 @@
       "deckId": "deck-but1-ensembles",
       "front": "Soient E et F deux ensembles \nOn dit que E=F si",
       "back": "E ⊂ F et F ⊂ E",
-      "dueDate": "2026-10-03T20:33:08.958Z",
+      "dueDate": "2026-10-05T08:45:38.308Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -303,49 +319,49 @@
       "deckId": "deck-but1-ensembles",
       "front": "Soient E et F deux ensembles \nOn dit que E et F sont disjoints si",
       "back": "E n F =∅",
-      "dueDate": "2026-10-03T20:35:13.433Z",
+      "dueDate": "2026-10-05T11:42:19.557Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791060856629",
       "deckId": "deck-but1-ensembles",
       "front": "Soient E et F deux sous-ensembles de Ω\n\nL’union de E et F, notée E u F est l’ensemble:\n\n\nL’intersection de E et F, notée E n F est l’ensemble:\n\nLe complémentaire de E dans Ω est notée Ē \n\n\nLes sous ensembles non vides A_1, À_2, A_p de E forment une partition de E si  :",
       "back": "{x € Ω| x€  E v x € F} \n\n{   x € Ω| X € E ^ x € F }\n\n{x € Ω| x \\E } (€/)\n\n\nIls sont deux à deux disjoints ( A_i n A_j = ∅ pour tous I,j avec I différent de j ) \n+\nIls forment un recouvrement de E soit A_1 u A_2,.., u A_p = E",
-      "dueDate": "2026-10-03T20:54:16.629Z",
+      "dueDate": "2026-10-05T11:43:40.863Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791061052775",
       "deckId": "deck-but1-ensembles",
       "front": "La différence de E et F est notée E\\F = \n\nLa différence symétrique de E et F est notée E Δ F =",
       "back": "{ x€ e | x €/ f } \n\n{ ( E u F) \\ ( E n F )",
-      "dueDate": "2026-10-03T20:57:32.775Z",
+      "dueDate": "2026-10-05T11:44:12.712Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791061232199",
       "deckId": "deck-but1-ensembles",
       "front": "Une relation binaire ( ou relation) entre deux ensembles E et F est un sous ensemble S du produit cartésien E x F",
       "back": "Si x € e et y € f, on pose alors x R y lorsque (x,y) € S",
-      "dueDate": "2026-10-03T21:00:32.199Z",
+      "dueDate": "2026-10-04T11:54:33.171Z",
       "interval": 1,
       "repetition": 0,
-      "efactor": 2.5
+      "efactor": 1.7000000000000002
     },
     {
       "_id": "card-1791061510826",
       "deckId": "deck-but1-ensembles",
       "front": "Soit R une relation définie sur E \nR est dite \n\nRéflexive si: \n\nIrreflexive si: \n\nSymétrique si: \n\nAntisymétrique si: \n\nTransitive si :",
       "back": "Pour tout a € e , a R a \n\nPour tout a € e, non ( a R a) \n\nPour tout a, pour tout b € e ( a R b = > b R a ) \n\nPour tout a, pour tout b € e ((a R b ^ b R a) => a = b) \n\nPour tout a pour tout b pour tout c € e ((a R b et b R c) => a R c)",
-      "dueDate": "2026-10-03T21:05:10.826Z",
+      "dueDate": "2026-10-05T11:45:51.491Z",
       "interval": 1,
-      "repetition": 0,
+      "repetition": 1,
       "efactor": 2.5
     },
     {
@@ -353,30 +369,30 @@
       "deckId": "deck-but1-ensembles",
       "front": "=< est reflexive :\n=< est Irreflexive :\n=< est  Symétrique:\n=< est Anti-symétrique:\n=< est Transitive:",
       "back": "Vrai \nFaux \nFaux \nVrai \nVrai",
-      "dueDate": "2026-10-03T21:07:56.898Z",
+      "dueDate": "2026-10-05T11:46:08.735Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.6
     },
     {
       "_id": "card-1791061806408",
       "deckId": "deck-but1-ensembles",
       "front": "Soit E un ensemble et R une relation sur E \n\nOn dit que R est une relation d’ordre si elle est \n\n\n\n\nElle est alors …\n\n\nIl s’agit d’un ordre …\n\nUne relation d’ordre stricte est :",
       "back": "Reflexive \nTransitive \nEt anti-symétrique \n\nElle est alors ordonnée\n\n\nLarge \n\n\nIrreflexive et transitive",
-      "dueDate": "2026-10-03T21:10:06.408Z",
+      "dueDate": "2026-10-05T11:46:38.842Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791062041386",
       "deckId": "deck-but1-ensembles",
       "front": "Un ordre large est dit total si deux éléments sont toujours comparables \n\nUn ordre qui n’est pas total est dit",
       "back": "Pour x,y € e, x <= y ou y <= x \n\nPartiel",
-      "dueDate": "2026-10-03T21:14:01.386Z",
+      "dueDate": "2026-10-05T11:46:58.411Z",
       "interval": 1,
-      "repetition": 0,
-      "efactor": 2.5
+      "repetition": 1,
+      "efactor": 2.36
     },
     {
       "_id": "card-1791063899826",
@@ -513,6 +529,206 @@
       "deckId": "deck-but1-go",
       "front": "Comment parcourir un tableau, une slice ou une map à l'aide de l'instruction for ... range ?",
       "back": "Syntaxe avec index/clé et valeur :\n\nfor i, val := range maSlice {\n    fmt.Println(i, val)\n}\n\nSi on n'a pas besoin de l'index, on utilise l'identifiant muet _ :\nfor _, val := range maSlice { ... }",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791103614659",
+      "deckId": "deck-1791054595864",
+      "front": "Puissance de \n\n\n\n2.1\n\n2.2\n\n2.3\n\n2.4.\n\n2.5\n\n2.6 \n\n2.7 \n\n2.8 \n\n2.9 \n\n2.10\n\n2.11\n\n2.12\n\n2.13\n\n2.14\n\n2.15 \n\n2.16\n\n2.17\n\n2.18\n\n2.19 \n\n2.20",
+      "back": "2.1   2\n\n2.2.  4\n\n2.3.  8\n\n2.4.  16\n\n2.5.   32\n\n2.6.   64\n\n2.7.   128\n\n2.8     256\n\n2.9    512\n\n2.10. 1024\n\n2.11.  2048\n\n2.12  4096\n\n2.13.  8192\n\n2.14.  16384\n\n2.15  32768\n\n2.16 65336\n\n2.17 130672\n\n2.18  261344\n\n2.19 522688\n\n2.20 1045376",
+      "dueDate": "2026-10-04T08:46:54.659Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791103665442",
+      "deckId": "deck-1791054595864",
+      "front": "Écart =",
+      "back": "2^E-p ou e est l'exposant réel et p lespilon de la machine ( toujours 23 en float 32)",
+      "dueDate": "2026-10-04T08:47:45.442Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791103811019",
+      "deckId": "deck-1791103730052",
+      "front": "Logarithme neperien \n\n\n\na ln b = ? \nLn(x^a) = ?\nln(e^x) = ? \nln(1/x)= ? \n\n\n\nln(1)=?\nln(e)=?\n\n\n\n\n\nLn(racine de X) = ? \nrappel : racine de x = ?",
+      "back": "a ln b = lna^b\n\nLn(x^a) = aln(x)\nln(e^x) = x\n\nln(1/x) = -ln(x)\n\n\nln(e)=1 \n\nln(1)=0\n\n\n\n\n\nLn(racine de X) = 1/2ln(x)\n\n\n\n\nrappel : racine de x = x^1/2",
+      "dueDate": "2026-10-04T08:50:11.019Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791103895682",
+      "deckId": "deck-1791103865185",
+      "front": "a^2 - 2ab + b^2 = ?\n\n\n\n=> si (a -b )^2 = 0 alors ...\n\n\n\n(a+b) (a-b) = ?\n\n\n\n(X-1)^2 = 0 a pour unique solution...",
+      "back": "a^2 - 2ab + b^2 = ( a -b )^2 \n\n\n\n\nalors  a - b = 0\n\n\n(a+b) (a-b) = a^2 - b^2\n\n\n\nX= 1",
+      "dueDate": "2026-10-04T08:51:35.682Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791103950923",
+      "deckId": "deck-1791103730052",
+      "front": "1 /(e^x) =?",
+      "back": "E^(-x)",
+      "dueDate": "2026-10-04T08:52:30.923Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-1791104014882",
+      "deckId": "deck-1791103865185",
+      "front": "X^2 = x \n\n\n\nun produit de facteur est nul si et seulement si au moins l'un des facteurs est nul",
+      "back": "X^2-x = 0 \n\nx(x-1) = 0 \n\nsoit X = 0 ou X -1 = 0 \n\n\n\nS ={0;1}",
+      "dueDate": "2026-10-04T08:53:34.882Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-html-1",
+      "deckId": "deck-html-inter",
+      "front": "À quoi servent les balises sémantiques HTML5 (<article>, <section>, <aside>, <nav>, <header>, <footer>) par rapport aux <div> ?",
+      "back": "• Elles apportent du sens au contenu pour le référencement (SEO) et les lecteurs d'écran (A11y).\n• <article> : Contenu autonome et réutilisable (ex: article de blog, post).\n• <section> : Regroupement thématique de contenu.\n• <aside> : Contenu indirectement lié au sujet principal (ex: barre latérale, encadré).\n• <nav> : Blocs contenant les liens de navigation principaux.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-html-2",
+      "deckId": "deck-html-inter",
+      "front": "Comment fonctionne la gestion des images réactives avec l'élément <picture> et l'attribut srcset ?",
+      "back": "• srcset : Permet de proposer plusieurs résolutions/tailles d'une même image au navigateur.\nEx: <img src=\"small.jpg\" srcset=\"large.jpg 2x, huge.jpg 3x\">\n\n• <picture> : Permet de changer d'image selon des media queries CSS (Art Direction).\nEx:\n<picture>\n  <source media=\"(min-width: 800px)\" srcset=\"desktop.jpg\">\n  <img src=\"mobile.jpg\" alt=\"Description\">\n</picture>",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-html-3",
+      "deckId": "deck-html-inter",
+      "front": "À quoi servent les attributs HTML5 data-* et comment y accéder en JS/CSS ?",
+      "back": "• Utilité : Stocker des données personnalisées directement dans le DOM.\n• Syntaxe HTML : <div id=\"user\" data-user-id=\"42\" data-role=\"admin\"></div>\n\n• Accès JavaScript : element.dataset.userId\n• Accès CSS : element[data-role=\"admin\"] { ... }",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-html-4",
+      "deckId": "deck-html-inter",
+      "front": "Quels sont les principaux attributs HTML5 pour valider un formulaire sans JavaScript ?",
+      "back": "• required : Champ obligatoire.\n• pattern=\"[0-9]{5}\" : Validation par regex (ex: code postal).\n• min / max : Valeurs minimales/maximales pour types number/date.\n• minlength / maxlength : Longueur minimale/maximale du texte.\n• type=\"email|url|number\" : Validation du format automatique.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-html-5",
+      "deckId": "deck-html-inter",
+      "front": "Quelle est la balise <meta name=\"viewport\"> recommandée pour le Responsive Web Design et que signifie chaque paramètre ?",
+      "back": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n• width=device-width : Aligne la largeur de la page sur la largeur de l'écran de l'appareil.\n• initial-scale=1.0 : Définit le niveau de zoom initial à 100% lors du chargement.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-html-6",
+      "deckId": "deck-html-inter",
+      "front": "Que sont les attributs WAI-ARIA (role, aria-label, aria-hidden) et quand faut-il les utiliser ?",
+      "back": "• Utilité : Améliorer l'accessibilité (A11y) pour les lecteurs d'écran quand la sémantique HTML ne suffit pas.\n\n• role=\"...\" : Indique la fonction de l'élément (ex: role=\"button\").\n• aria-label=\"...\" : Fournit une étiquette textuelle lue par le lecteur d'écran.\n• aria-hidden=\"true\" : Masque un élément décoratif aux lecteurs d'écran.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-1",
+      "deckId": "deck-css-inter",
+      "front": "Comment est calculée la spécificité d'un sélecteur CSS ?",
+      "back": "Ordre de priorité (du plus fort au plus faible) :\n1. Style en ligne (attr style=\"...\") : (1, 0, 0, 0)\n2. Identifiants (#id) : (0, 1, 0, 0)\n3. Classes (.class), pseudo-classes (:hover) et attributs ([type=\"text\"]) : (0, 0, 1, 0)\n4. Éléments (div, p) et pseudo-éléments (::before) : (0, 0, 0, 1)\n\nNote : !important surpasse tout mais doit être évité.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-2",
+      "deckId": "deck-css-inter",
+      "front": "Quelle est la différence entre box-sizing: content-box et box-sizing: border-box ?",
+      "back": "• content-box (par défaut) :\nwidth = largeur du contenu uniquement.\nLargeur totale = width + padding + border.\n\n• border-box (recommandé) :\nwidth = largeur totale de l'élément.\nLe padding et la border sont inclus DANS la width.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-3",
+      "deckId": "deck-css-inter",
+      "front": "En Flexbox, quelle est la différence entre justify-content, align-items et align-content ?",
+      "back": "• justify-content : Aligne les éléments le long de l'axe PRINCIPAL (main axis).\n• align-items : Aligne les éléments le long de l'axe SECONDAIRE (cross axis) sur UNE SEULE ligne.\n• align-content : Aligne les LIGNES sur l'axe secondaire (uniquement en cas de multi-lignes flex-wrap: wrap).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-4",
+      "deckId": "deck-css-inter",
+      "front": "Comment créer une grille réactive CSS Grid sans media queries avec repeat(), auto-fit et minmax() ?",
+      "back": "Syntaxe :\ndisplay: grid;\ngrid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n\nExplication :\n• repeat(auto-fit, ...) : Adapte le nombre de colonnes à la largeur disponible.\n• minmax(250px, 1fr) : Chaque colonne fait au minimum 250px et s'étire équitablement jusqu'à 1fr.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-5",
+      "deckId": "deck-css-inter",
+      "front": "Quelles sont les différences entre les positions CSS : static, relative, absolute, fixed et sticky ?",
+      "back": "• static : Position par défaut dans le flux du document.\n• relative : Déplacée par rapport à sa position normale dans le flux.\n• absolute : Positionnée par rapport au premier ancêtre positionné (non static).\n• fixed : Positionnée par rapport au viewport (reste fixe au défilement).\n• sticky : Relative au départ, puis devient fixed lorsqu'un seuil de défilement est atteint.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-6",
+      "deckId": "deck-css-inter",
+      "front": "Comment déclarer et utiliser des variables CSS (Custom Properties) avec valeur de repli (fallback) ?",
+      "back": "Déclaration (souvent dans :root) :\n:root {\n    --main-color: #3498db;\n}\n\nUtilisation :\nbutton {\n    background-color: var(--main-color, blue);\n}\n\n(blue est la valeur de repli si --main-color n'est pas définie).",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-7",
+      "deckId": "deck-css-inter",
+      "front": "Quelle est la différence entre une pseudo-classe (:hover) et un pseudo-élément (::before) en CSS ?",
+      "back": "• Pseudo-classe (un seul :) : Cible un ÉTAT particulier d'un élément existant.\nEx: :hover, :focus, :nth-child(2).\n\n• Pseudo-élément (deux ::) : Crée ou cible une PARTIE virtuelle d'un élément.\nEx: ::before, ::after (nécessitent la propriété content: \"\"), ::first-letter.",
+      "dueDate": "2026-10-04T12:00:00.000Z",
+      "interval": 1,
+      "repetition": 0,
+      "efactor": 2.5
+    },
+    {
+      "_id": "card-css-8",
+      "deckId": "deck-css-inter",
+      "front": "Comment créer une animation CSS basique avec @keyframes ?",
+      "back": "1. Définition des étapes :\n@keyframes glissement {\n    from { transform: translateX(0); }\n    to { transform: translateX(100px); }\n}\n\n2. Application sur l'élément :\n.boite {\n    animation: glissement 2s ease-in-out infinite alternate;\n}",
       "dueDate": "2026-10-04T12:00:00.000Z",
       "interval": 1,
       "repetition": 0,
